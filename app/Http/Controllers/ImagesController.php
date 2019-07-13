@@ -49,8 +49,8 @@ class ImagesController extends Controller
                     $small_image_path=public_path('products/small/'.$filename);
                     //// Resize Images
                     Image::make($image)->save($large_image_path);
-                    Image::make($image)->resize(600,600)->save($medium_image_path);
-                    Image::make($image)->resize(300,300)->save($small_image_path);
+                    Image::make($image)->resize(160,160)->save($medium_image_path);
+                    Image::make($image)->resize(70,80)->save($small_image_path);
                     $inputData['image']=$filename;
                     ImageGallery_model::create($inputData);
                 }
