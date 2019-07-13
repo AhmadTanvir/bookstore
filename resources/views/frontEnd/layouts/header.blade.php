@@ -16,31 +16,36 @@
                 <ul>
                     <li>
                         <a class="play-icon popup-with-zoom-anim" href="#small-dialog1">
-                            <span class="fa fa-map-marker" aria-hidden="true"></span> Shop Locator</a>
+                            <span class="fa fa-map-marker" aria-hidden="true"></span>Shop Locator
+                        </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" data-toggle="modal" data-target="#myModal1">
                             <span class="fa fa-truck" aria-hidden="true"></span>Track Order</a>
-                    </li>
+                    </li> --}}
                     <li>
-                        <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
+                        <span class="fa fa-phone" aria-hidden="true"></span>001-234-5678
                     </li>
                     @if(Auth::check())
                     <li>
-                                <li><a href="{{url('/myaccount')}}"><i class="fa fa-user"></i> My Account</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-lock"></i> Logout </a>
-                                </li>
-                            @else
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#myModal1">
-                                    <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
-                                </li>
-                            
+                        <a href="{{url('/myaccount')}}">
+                            <span class="fa fa-user" aria-hidden="true"></span>My Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/logout') }}">
+                            <span class="fa fa-lock" aria-hidden="true"></span>Logout
+                        </a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal1">
+                            <span class="fa fa-unlock-alt" aria-hidden="true"></span>Sign In</a>
                     </li>
                     @endif
                     <li>
                         <a href="#" data-toggle="modal" data-target="#myModal2">
-                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span>Sign Up</a>
                     </li>
                 </ul>
                 <!-- //header lists -->
