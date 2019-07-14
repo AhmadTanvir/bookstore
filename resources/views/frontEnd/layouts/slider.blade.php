@@ -1,6 +1,6 @@
 <section id="slider"><!--slider-->
     <div class="container">
-        {{--<div class="row">
+        <div class="row">
             <div class="col-sm-12">
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -59,6 +59,6 @@
                 </div>
 
             </div>
-        </div>--}}
+        </div>
     </div>
 </section><!--/slider-->
