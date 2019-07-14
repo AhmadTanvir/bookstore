@@ -17,7 +17,7 @@
     <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/font-awesome.css')}}" rel="stylesheet">
-    <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet"> --}}
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="{{asset('frontEnd/js/html5shiv.js')}}"></script>
