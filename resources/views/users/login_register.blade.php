@@ -45,7 +45,6 @@
 
                         <input type="password" placeholder="Confirm Password" name="password_confirmation" value="{{old('password_confirmation')}}"/>
                         <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
-
                         <button type="submit" class="btn btn-default">Signup</button>
                     </form>
                 </div><!--/sign up form-->
