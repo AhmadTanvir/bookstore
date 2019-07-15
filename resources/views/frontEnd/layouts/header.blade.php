@@ -138,18 +138,23 @@
                         <p>
                             Come join the Grocery Shoppy! Let's set up your Account.
                         </p>
-                        <form action="#" method="post">
+                        <form action="{{url('/register_user')}}" method="post">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="styled-input agile-styled-input-top">
-                                <input type="text" placeholder="Name" name="Name" required="">
+                                <input type="text" placeholder="Name" name="name" value="{{old('name')}}">
+                                <span class="text-danger">{{$errors->first('name')}}</span>
                             </div>
                             <div class="styled-input">
-                                <input type="email" placeholder="E-mail" name="Email" required="">
+                                <input type="email" placeholder="E-mail" name="email" value="{{old('email')}}">
+                                <span class="text-danger">{{$errors->first('email')}}</span>
                             </div>
                             <div class="styled-input">
-                                <input type="password" placeholder="Password" name="password" id="password1" required="">
+                                <input type="password" placeholder="Password" name="password" id="password1">
+                                <span class="text-danger">{{$errors->first('password')}}</span>
                             </div>
                             <div class="styled-input">
-                                <input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2" required="">
+                                <input type="password" placeholder="Confirm Password" name="password_confirmation" id="password2">
+                                <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
                             </div>
                             <input type="submit" value="Sign Up">
                         </form>
