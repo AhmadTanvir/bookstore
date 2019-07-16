@@ -375,7 +375,6 @@ return array(
     'Faker\\Provider\\it_IT\\Payment' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/it_IT/Payment.php',
     'Faker\\Provider\\it_IT\\Person' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/it_IT/Person.php',
     'Faker\\Provider\\it_IT\\PhoneNumber' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/it_IT/PhoneNumber.php',
-    'Faker\\Provider\\it_IT\\Text' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/it_IT/Text.php',
     'Faker\\Provider\\ja_JP\\Address' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/ja_JP/Address.php',
     'Faker\\Provider\\ja_JP\\Company' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/ja_JP/Company.php',
     'Faker\\Provider\\ja_JP\\Internet' => $vendorDir . '/fzaninotto/faker/src/Faker/Provider/ja_JP/Internet.php',
