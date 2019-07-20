@@ -1,6 +1,6 @@
     <!--Header Area Start-->
         <div class="header-area">
-            <div style="padding: 0 300px">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-6">
                         <div class="header-logo">
