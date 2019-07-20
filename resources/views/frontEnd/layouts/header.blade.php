@@ -111,7 +111,7 @@
                         <div class="header-right">
                             <ul>
                                 <li>
-                                    <a href="account.html"><i class="flaticon-people"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2"><i class="flaticon-people"></i></a>
                                 </li>
                                 <li class="shoping-cart">
                                     <a href="#">
@@ -182,4 +182,50 @@
             </div>
         </div>
         <!--Header Area End-->
-    
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body modal-body-sub_agile">
+                    <div class="main-mailposi">
+                        <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                    </div>
+                    <div class="modal_body_left modal_body_left1">
+                        <h3 class="agileinfo_sign">Sign Up</h3>
+                        <p>
+                            Come join the Grocery Shoppy! Let's set up your Account.
+                        </p>
+                        <form action="{{url('/register_user')}}" method="post">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <div class="styled-input agile-styled-input-top">
+                                <input type="text" placeholder="Name" name="name" value="{{old('name')}}">
+                                <span class="text-danger">{{$errors->first('name')}}</span>
+                            </div>
+                            <div class="styled-input">
+                                <input type="email" placeholder="E-mail" name="email" value="{{old('email')}}">
+                                <span class="text-danger">{{$errors->first('email')}}</span>
+                            </div>
+                            <div class="styled-input">
+                                <input type="password" placeholder="Password" name="password" id="password1">
+                                <span class="text-danger">{{$errors->first('password')}}</span>
+                            </div>
+                            <div class="styled-input">
+                                <input type="password" placeholder="Confirm Password" name="password_confirmation" id="password2">
+                                <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+                            </div>
+                            <input type="submit" value="Sign Up">
+                        </form>
+                        <p>
+                            <a href="#">By clicking register, I agree to your terms</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- //Modal content-->
+        </div>
+    </div>
+    <!-- //Modal2 -->
