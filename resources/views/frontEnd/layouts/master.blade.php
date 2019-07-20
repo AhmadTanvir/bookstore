@@ -23,16 +23,16 @@
     <link href="{{asset('frontEnd/css/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/responsive.css')}}" rel="stylesheet">
-    <!-- <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet"> -->
-    <!-- <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet"> -->
-    <!-- <link href="{{asset('frontEnd/css/font-awesome.css')}}" rel="stylesheet"> -->
-    <!-- <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet"> -->
+    <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet">
     <script src="{{asset('frontEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <!--[if lt IE 9]>
     <script src="{{asset('frontEnd/js/html5shiv.js')}}"></script>
     <script src="{{asset('frontEnd/js/respond.min.js')}}"></script>
     <![endif]-->
-    <!-- <link rel="stylesheet" href="{{asset('easyzoom/css/easyzoom.css')}}" /> -->
+    <link rel="stylesheet" href="{{asset('easyzoom/css/easyzoom.css')}}" />
 </head><!--/head-->
 
 <body>
@@ -65,13 +65,13 @@
 <script src="{{asset('frontEnd/js/main.js')}}"></script>
 <!-- <script src="{{asset('frontEnd/js/price-range.js')}}"></script> -->
 <!-- <script src="{{asset('frontEnd/js/jquery.prettyPhoto.js')}}"></script> -->
-<!-- <script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script> -->
+<script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
 <!-- <script src="{{asset('frontEnd/js/jquery-2.1.4.min.js')}}"></script> -->
     <!-- //jquery -->
 
     <!-- popup modal (for signin & signup)-->
-<!-- <script src="{{asset('frontEnd/js/jquery.magnific-popup.js')}}"></script> -->
-    <!-- <script>
+<script src="{{asset('frontEnd/js/jquery.magnific-popup.js')}}"></script>
+    <script>
         $(document).ready(function () {
             $('.popup-with-zoom-anim').magnificPopup({
                 type: 'inline',
@@ -86,7 +86,7 @@
             });
 
         });
-    </script> -->
+    </script>
 <!-- <script src="{{asset('frontEnd/js/minicart.js')}}"></script> -->
     <!-- <script>
         paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
