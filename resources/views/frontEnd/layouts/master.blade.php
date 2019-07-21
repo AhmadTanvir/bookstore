@@ -21,7 +21,8 @@
     <link href="{{asset('frontEnd/lib/css/nivo-slider.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/lib/css/preview.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/owl.carousel.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/style1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet">
@@ -87,8 +88,8 @@
 
         });
     </script>
-<!-- <script src="{{asset('frontEnd/js/minicart.js')}}"></script> -->
-    <!-- <script>
+<script src="{{asset('frontEnd/js/minicart.js')}}"></script>
+    <script>
         paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
 
         paypalm.minicartk.cart.on('checkout', function (evt) {
@@ -107,12 +108,12 @@
                 evt.preventDefault();
             }
         });
-    </script> -->
+    </script>
     <!-- //cart-js -->
 
     <!-- price range (top products) -->
-    <!-- <script src="{{asset('frontEnd/js/jquery-ui.js')}}"></script> -->
-    <!-- <script>
+    <script src="{{asset('frontEnd/js/jquery-ui.js')}}"></script>
+    <script>
         //<![CDATA[ 
         $(window).load(function () {
             $("#slider-range").slider({
@@ -127,12 +128,12 @@
             $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
 
         }); //]]>
-    </script> -->
+    </script>
     <!-- //price range (top products) -->
 
     <!-- flexisel (for special offers) -->
-    <!-- <script src="{{asset('frontEnd/js/jquery.flexisel.js')}}"></script> -->
-    <!-- <script>
+    <script src="{{asset('frontEnd/js/jquery.flexisel.js')}}"></script>
+    <script>
         $(window).load(function () {
             $("#flexiselDemo1").flexisel({
                 visibleItems: 3,
@@ -158,11 +159,11 @@
             });
 
         });
-    </script> -->
+    </script>
     <!-- //flexisel (for special offers) -->
 
     <!-- password-script -->
-    <!-- <script>
+    <script>
         window.onload = function () {
             document.getElementById("password1").onchange = validatePassword;
             document.getElementById("password2").onchange = validatePassword;
@@ -177,7 +178,7 @@
                 document.getElementById("password2").setCustomValidity('');
             //empty string means no validation error
         }
-    </script> -->
+    </script>
     <!-- //password-script -->
 
     <!-- smoothscroll -->
@@ -185,9 +186,9 @@
     <!-- //smoothscroll -->
 
     <!-- start-smooth-scrolling -->
-    <!-- <script src="{{asset('frontEnd/js/move-top.js')}}"></script> -->
-    <!-- <script src="{{asset('frontEnd/js/easing.js')}}"></script> -->
-    <!-- <script>
+    <script src="{{asset('frontEnd/js/move-top.js')}}"></script>
+    <script src="{{asset('frontEnd/js/easing.js')}}"></script>
+    <script>
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
                 event.preventDefault();
@@ -197,7 +198,7 @@
                 }, 1000);
             });
         });
-    </script> -->
+    </script>
     <!-- //end-smooth-scrolling -->
 
     <!-- smooth-scrolling-of-move-up -->
