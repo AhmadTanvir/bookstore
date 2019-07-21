@@ -76,13 +76,13 @@ padding: 0
     text-shadow: none;
 	color:#353535;
 }
-body {
+/*body {
     color: #444444;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 400;
     background: #ffffff;
-}
+}*/
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
@@ -695,10 +695,10 @@ body {
 .product-wrapper {
   position: relative;
 }
-.single-banner-image-wrapper {
+/*.single-banner-image-wrapper {
   display: block;
   position: relative;
-}
+}*/
 .single-banner-image-wrapper::before {
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
   content: "";
