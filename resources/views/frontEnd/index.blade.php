@@ -115,20 +115,15 @@
                     <div class="product-list tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="arrival">
                             <div class="featured-product-list indicator-style">
+                        @foreach($products as $product)
+                             @if($product->category->status==1)
                                 <div class="single-p-banner">
                                     <div class="col-md-3">
                                         <div class="single-banner">
                                             <div class="product-wrapper">
                                                 <a href="#" class="single-banner-image-wrapper">
-                                                    <img alt="" src="{{asset('frontEnd/imag/featured/f1.jpg')}}">
-                                                    <div class="price"><span>$</span>160</div>
-                                                    <div class="rating-icon">
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
+                                                    <img alt="" src="{{url('products/small/',$product->image)}}">
+                                                    <div class="price"><span>$</span>{{$product->price}}</div>
                                                 </a>
                                                 <div class="product-description">
                                                     <div class="functional-buttons">
@@ -145,7 +140,14 @@
                                                 </div>
                                             </div>
                                             <div class="banner-bottom text-center">
-                                                <a href="#">East of eden</a>
+                                                <a href="{{url('/product-detail',$product->id)}}">{{$product->p_name}}</a>
+                                                <div class="rating-icon">
+                                                     <i class="fa fa-star icolor"></i>
+                                                     <i class="fa fa-star icolor"></i>
+                                                     <i class="fa fa-star icolor"></i>
+                                                     <i class="fa fa-star"></i>
+                                                     <i class="fa fa-star"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -153,15 +155,8 @@
                                         <div class="single-banner">
                                             <div class="product-wrapper">
                                                 <a href="#" class="single-banner-image-wrapper">
-                                                    <img alt="" src="{{asset('frontEnd/imag/featured/f5.jpg')}}">
-                                                    <div class="price"><span>$</span>160</div>
-                                                    <div class="rating-icon">
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
+                                                    <img alt="" src="{{url('products/small/',$product->image)}}">
+                                                    <div class="price"><span>$</span>{{$product->price}}</div>
                                                 </a>
                                                 <div class="product-description">
                                                     <div class="functional-buttons">
@@ -178,12 +173,21 @@
                                                 </div>
                                             </div>
                                             <div class="banner-bottom text-center">
-                                                <a href="#">The historian</a>
+                                                <a href="{{url('/product-detail',$product->id)}}">{{$product->p_name}}</a>
+                                                <div class="rating-icon">
+                                                    <i class="fa fa-star icolor"></i>
+                                                    <i class="fa fa-star icolor"></i>
+                                                    <i class="fa fa-star icolor"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-p-banner">
+                                @endif
+                            @endforeach
+                                {{-- <div class="single-p-banner">
                                     <div class="col-md-3">
                                         <div class="single-banner">
                                             <div class="product-wrapper">
@@ -522,10 +526,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="sale">
+                        {{-- <div role="tabpanel" class="tab-pane fade" id="sale">
                             <div class="featured-product-list indicator-style">
                                 <div class="single-p-banner">
                                     <div class="col-md-3">
@@ -937,11 +941,66 @@
                                 </div>
                                 
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>             
             </div>
         </div>
+        <!--Quickview Product Start -->
+        <div id="quickview-wrapper">
+            <!-- Modal -->
+            <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            @if($product->category->status==1)
+                            <div class="modal-product">
+                                <div class="product-images">
+                                    <div class="main-image images">
+                                        <a href="{{url('/product-detail',$product->id)}}"><img src="{{url('products/large/',$product->image)}}" alt="" /></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h1>{{$product->p_name}}</h1>
+                                    <div class="price-box">
+                                        <p class="s-price"><span class="special-price"><span class="amount">${{$product->price}}</span></span></p>
+                                    </div>
+                                    <a href="{{url('/product-detail',$product->id)}}" class="see-all">See all features</a>
+                                    <div class="quick-add-to-cart">
+                                        <form method="post" class="cart">
+                                            <div class="numbers-row">
+                                                <input type="number" id="french-hens" value="3">
+                                            </div>
+                                            <button class="single_add_to_cart_button" type="submit">Add to cart</button>
+                                        </form>
+                                    </div>
+                                    <div class="quick-desc">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.
+                                    </div>
+                                    <div class="social-sharing">
+                                        <div class="widget widget_socialsharing_widget">
+                                            <h3 class="widget-title-modal">Share this product</h3>
+                                            <ul class="social-icons">
+                                                <li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
+                                                <li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!-- .product-info -->
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of Quickview Product--> 
         <!-- Featured Product Area End -->
         <!-- Testimonial Area Start -->
         <div class="testimonial-area text-center">
