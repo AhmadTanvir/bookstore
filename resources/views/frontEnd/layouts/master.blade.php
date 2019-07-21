@@ -27,7 +27,7 @@
     <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/font-awesome.css')}}" rel="stylesheet">
-    <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet"> --}}
     <script src="{{asset('frontEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <!--[if lt IE 9]>
     <script src="{{asset('frontEnd/js/html5shiv.js')}}"></script>
