@@ -89,8 +89,8 @@
                         <div class="mainmenu text-center">
                             <nav>
                                 <ul id="nav">
-                                    <li><a href="index.html">HOME</a></li>
-                                    <li><a href="shop.html">FEATURED</a></li>
+                                    <li><a href="{{url('/')}}">HOME</a></li>
+                                    <li><a href="{{url('/list-products')}}">FEATURED</a></li>
                                     <li><a href="shop.html">REVIEW BOOK</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>
                                     <li><a href="#">pages</a>
@@ -202,7 +202,7 @@
                     <div class="modal_body_left modal_body_left1">
                         <h3 class="agileinfo_sign">Sign In </h3>
                         <p>
-                            Sign In now, Let's start your Grocery Shopping. Don't have an account?
+                            Sign In now, Let's start your Blog with your writings. Don't have an account?
                             <a href="#" data-toggle="modal" data-target="#myModal2">
                                 Sign Up Now</a>
                         </p>
