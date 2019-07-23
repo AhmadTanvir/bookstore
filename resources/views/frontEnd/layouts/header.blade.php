@@ -121,36 +121,47 @@
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
-                                        <span>{{ count(session('session_id')) }}</span>
+                                        <span>{{ count(session('cart')) }}</span>
                                     </a>
                                     <div class="add-to-cart-product">
+                                        @if(session('cart'))
+                                            @foreach(session('cart') as $id => $details)
                                         <div class="cart-product">
                                             <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="{{asset('frontEnd/imag/shop/cart1.jpg')}}" alt="">
+                                                <a href="">
+                                                    <img src="{{ $details['image'] }}" alt="">
                                                 </a>
                                             </div>
                                             <div class="cart-product-info">
                                                 <p>
-                                                    <span>1</span>
-                                                    x
-                                                    <a href="single-product.html">East of eden</a>
+                                                    <span></span>
+                                                    <i class="flacticon-cross"></i>
+                                                    <a href="">{{ $details['p_name'] }}</a>
                                                 </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
+                                                <span class="cart-price">Price: $ {{ $details['price'] }}</span><br>
+                                                <span class="count"> Quantity:{{ $details['quantity'] }}</span>
                                             </div>
                                             <div class="cart-product-remove">
                                                 <i class="fa fa-times"></i>
                                             </div>
                                         </div>
+                                    @endforeach
+                                    @endif
+                                    <?php $total = 0 ?>
+                                    @if(session('cart'))
+                                        @foreach(session('cart') as $id => $details)
+                                            <?php $total += $details['price'] * $details['quantity'] ?>
+                                        @endforeach
+                                    @endif
                                         <div class="total-cart-price">
                                             <div class="cart-product-line fast-line">
-                                                <span>Shipping</span>
-                                                <span class="free-shiping">$10.50</span>
+                                                <span style="float: left;">Shipping</span>
+                                                <span class="free-shiping">$10.50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                             </div>
                                             <div class="cart-product-line">
-                                                <span>Total</span>
-                                                <span class="total">$ 140.00</span>
+                                                <span style="float: left;">Total</span>
+                                                <span class="total">$ {{ $total }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                <div></div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 cart-checkout">
