@@ -23,9 +23,28 @@
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
-                                        <span>{{ count(session('cart')) }}</span>
+                                        <span>2</span>
                                     </a>
                                     <div class="add-to-cart-product">
+                                        <div class="cart-product">
+                                            <div class="cart-product-image">
+                                                <a href="single-product.html">
+                                                    <img src="{{asset('frontEnd/imag/shop/cart1.jpg')}}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="cart-product-info">
+                                                <p>
+                                                    <span>1</span>
+                                                    x
+                                                    <a href="single-product.html">East of eden</a>
+                                                </p>
+                                                <a href="single-product.html">S, Orange</a>
+                                                <span class="cart-price">$ 140.00</span>
+                                            </div>
+                                            <div class="cart-product-remove">
+                                                <i class="fa fa-times"></i>
+                                            </div>
+                                        </div>
                                         <div class="cart-product">
                                             <div class="cart-product-image">
                                                 <a href="single-product.html">
