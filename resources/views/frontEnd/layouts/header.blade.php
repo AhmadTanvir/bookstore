@@ -121,28 +121,9 @@
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
-                                        <span>2</span>
+                                        <span>{{ count(session('session_id')) }}</span>
                                     </a>
                                     <div class="add-to-cart-product">
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="{{asset('frontEnd/imag/shop/cart1.jpg')}}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <span>1</span>
-                                                    x
-                                                    <a href="single-product.html">East of eden</a>
-                                                </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </div>
                                         <div class="cart-product">
                                             <div class="cart-product-image">
                                                 <a href="single-product.html">
@@ -172,11 +153,19 @@
                                                 <span class="total">$ 140.00</span>
                                             </div>
                                         </div>
-                                        <div class="cart-checkout">
-                                            <a href="checkout.html">
-                                                Check out
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
+                                        <div class="col-md-12 cart-checkout">
+                                            <div style="float: right;width: 50%">
+                                                <a href="{{url('/check-out')}}">
+                                                    Check out
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                            <div style="float: left;width: 50%">
+                                                <a href="{{url('/viewcart')}}">
+                                                    View Cart
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
