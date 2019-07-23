@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Cart_model;
 use App\Category_model;
 use App\ImageGallery_model;
 use App\ProductAtrr_model;
@@ -23,8 +24,14 @@ class IndexController extends Controller
     }
     
     public function index(){
+        $session_id=Session::get('session_id');
+        $cart_datas=Cart_model::where('session_id',$session_id)->get();
+        $total_price=0;
+        foreach ($cart_datas as $cart_data){
+            $total_price+=$cart_data->price*$cart_data->quantity;
+        }
         $products=Products_model::all();
-        return view('frontEnd.index',compact('products'));
+        return view('frontEnd.index',compact('products','cart_datas','total_price'));
     }
     public function shop(){
         $products=Products_model::all();
@@ -89,5 +96,90 @@ class IndexController extends Controller
         $products           = Products_model::orderBy('created_at','asc')->get();
         $sortName           = 'Newest';
         return view('frontEnd.index')->with('products',$products)->with('cart',$this->getCart())->with('searchType','Shopper\'s Select')->with('searchName','New Arrivals');
+    }
+    
+    public function addToCart($id)
+    {
+        $product = Products_model::find($id);
+ 
+        if(!$product) {
+ 
+            abort(404);
+ 
+        }
+ 
+        $cart = session()->get('cart');
+ 
+        // if cart is empty then this the first product
+        if(!$cart) {
+ 
+            $cart = [
+                    $id => [
+                        "p_name" => $product->p_name,
+                        "quantity" => 1,
+                        "price" => $product->price,
+                        "image" => $product->image
+                    ]
+            ];
+ 
+            session()->put('cart', $cart);
+ 
+            return redirect('/')->with('success', 'Product added to cart successfully!');
+        }
+ 
+        // if cart not empty then check if this product exist then increment quantity
+        if(isset($cart[$id])) {
+ 
+            $cart[$id]['quantity']++;
+ 
+            session()->put('cart', $cart);
+ 
+            return redirect('/')->with('success', 'Product added to cart successfully!');
+ 
+        }
+ 
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$id] = [
+            "p_name" => $product->p_name,
+            "quantity" => 1,
+            "price" => $product->price,
+            "image" => $product->image
+        ];
+ 
+        session()->put('cart', $cart);
+ 
+        return redirect('/')->with('success', 'Product added to cart successfully!');
+ 
+    }
+
+    public function update(Request $request)
+    {
+        if($request->id and $request->quantity)
+        {
+            $cart = session()->get('cart');
+ 
+            $cart[$request->id]["quantity"] = $request->quantity;
+ 
+            session()->put('cart', $cart);
+ 
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+ 
+    public function remove(Request $request)
+    {
+        if($request->id) {
+ 
+            $cart = session()->get('cart');
+ 
+            if(isset($cart[$request->id])) {
+ 
+                unset($cart[$request->id]);
+ 
+                session()->put('cart', $cart);
+            }
+ 
+            session()->flash('success', 'Product removed successfully');
+        }
     }
 }
