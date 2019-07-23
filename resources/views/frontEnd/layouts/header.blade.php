@@ -13,7 +13,7 @@
                         <div class="header-right">
                             <ul>
                                 @if(Auth::check())
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-lock"></i>Logout</a>
+                                    <li><a href="{{ url('/logout') }}"><i class="flaticon-lock"></i>Logout</a>
                                 </li>
                                 @else
                                     <li>
@@ -23,7 +23,7 @@
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
-                                        <span>2</span>
+                                        <span>{{ count(session('cart')) }}</span>
                                     </a>
                                     <div class="add-to-cart-product">
                                         <div class="cart-product">
