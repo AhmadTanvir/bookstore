@@ -18,6 +18,7 @@ Route::get('/price/{low}/{high}','IndexController@getPriceRange');
 Route::get ('sort/{type}','IndexController@getSort');
 Route::get ('new-arrivals','IndexController@newArrivals');
 Route::get('/product-detail/{id}','IndexController@detialpro');
+Route::get('add-to-cart/{id}', 'IndexController@addToCart');
 ////// get Attribute ////////////
 Route::get('/get-product-attr','IndexController@getAttrs');
 ///// Cart Area /////////
