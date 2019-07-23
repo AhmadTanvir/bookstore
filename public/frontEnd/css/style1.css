@@ -230,7 +230,7 @@ padding: 0
 .cart-product-info {
   float: left;
   margin-top: -2px;
-  width: 125px;
+  width: 240px;
 }
 .cart-product-info p {
   color: #000000;
@@ -274,7 +274,7 @@ padding: 0
   transform-origin: 0 0 0;
   transition: all 0.5s ease 0s;
   visibility: hidden;
-  width: 270px;
+  width: 400px;
   z-index: 1000000000;
 }
 .shoping-cart:hover .add-to-cart-product {
