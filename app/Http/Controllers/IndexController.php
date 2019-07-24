@@ -24,12 +24,6 @@ class IndexController extends Controller
     }
     
     public function index(){
-        $session_id=Session::get('session_id');
-        $cart_datas=Cart_model::where('session_id',$session_id)->get();
-        $total_price=0;
-        foreach ($cart_datas as $cart_data){
-            $total_price+=$cart_data->price*$cart_data->quantity;
-        }
         $products=Products_model::all();
         return view('frontEnd.index',compact('products','cart_datas','total_price'));
     }
