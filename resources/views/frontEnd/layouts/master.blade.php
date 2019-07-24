@@ -69,7 +69,41 @@
 <script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
 <!-- <script src="{{asset('frontEnd/js/jquery-2.1.4.min.js')}}"></script> -->
     <!-- //jquery -->
-
+<script type="text/javascript">
+ 
+        $(".update-cart").click(function (e) {
+           e.preventDefault();
+ 
+           var ele = $(this);
+ 
+            $.ajax({
+               url: '{{ url('update-cart') }}',
+               method: "patch",
+               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
+               success: function (response) {
+                   window.location.reload();
+               }
+            });
+        });
+ 
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+ 
+            var ele = $(this);
+ 
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-from-cart') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+ 
+    </script>
     <!-- popup modal (for signin & signup)-->
 <script src="{{asset('frontEnd/js/jquery.magnific-popup.js')}}"></script>
     <script>
