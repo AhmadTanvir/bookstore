@@ -53,8 +53,8 @@
                                             </div>
                                             <div class="cart-product-info">
                                                 <p>
-                                                    <span>1</span>
-                                                    x
+                                                    <!-- <span>1</span>
+                                                    x -->
                                                     <a href="single-product.html">East of eden</a>
                                                 </p>
                                                 <a href="single-product.html">S, Orange</a>
@@ -134,15 +134,15 @@
                                             </div>
                                             <div class="cart-product-info">
                                                 <p>
-                                                    <span></span>
-                                                    <i class="flacticon-cross"></i>
+                                                    <!-- <span></span> -->
+                                                    <!-- <i class="flacticon-cross remove-from-cart" data-id="{{ $id }}"></i> -->
                                                     <a href="">{{ $details['p_name'] }}</a>
                                                 </p>
                                                 <span class="cart-price">Price: $ {{ $details['price'] }}</span><br>
                                                 <span class="count"> Quantity:{{ $details['quantity'] }}</span>
                                             </div>
                                             <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
+                                                <i class="fa fa-times remove-from-cart" data-id="{{ $id }}"></i>
                                             </div>
                                         </div>
                                     @endforeach
