@@ -22,6 +22,9 @@
             </div>
         </div> 
         <!-- Breadcrumbs Area Start --> 
+        <?php
+            $categories=DB::table('categories')->where([['status',1],['parent_id',0]])->get();
+        ?>
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
             <div class="container">
@@ -31,36 +34,30 @@
                             <div class="shop-widget-top">
                                 <aside class="widget widget-categories">
                                     <h2 class="sidebar-title text-center">CATEGORY</h2>
+        @foreach($categories as $category)
+            <?php
+                $sub_categories=DB::table('categories')->select('id','name')->where([['parent_id',$category->id],['status',1]])->get();
+            ?>
                                     <ul class="sidebar-menu">
                                         <li>
-                                            <a href="#">
-                                               <i class="fa fa-angle-double-right"></i>
-                                                LEARNING                                          
-                                                <span>(5)</span>
+                                            <a data-toggle="collapse" data-parent="#accordian" href="#sportswear{{$category->id}}">
+                                                @if(count($sub_categories)>0)
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                @endif
                                             </a>
+                                            <a href="{{route('cats',$category->id)}}">{{$category->name}}</a>
                                         </li>
-                                        <li>
-                                            <a href="#">
-                                               <i class="fa fa-angle-double-right"></i>
-                                                LIGHTING                                            
-                                                <span>(8)</span>
-                                            </a>
+                                        @if(count($sub_categories)>0)
+                                        <li id="sportswear{{$category->id}}" class="panel-collapse collapse">
+                                            <ul class="panel-body">
+                                                @foreach($sub_categories as $sub_category)
+                                                    <li style="padding: 10px"><a href="{{route('cats',$sub_category->id)}}">{{$sub_category->name}} </a></li>
+                                                @endforeach
+                                            </ul>
                                         </li>
-                                        <li>
-                                            <a href="#">
-                                              <i class="fa fa-angle-double-right"></i>
-                                               LIVING ROOMS
-                                                <span>(4)</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                               <i class="fa fa-angle-double-right"></i>
-                                                LAMP                                           
-                                                <span>(7)</span>
-                                            </a>
-                                        </li>
+                                        @endif
                                     </ul>
+                            @endforeach
                                 </aside> 
                                 <aside class="widget shop-filter">
                                     <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
