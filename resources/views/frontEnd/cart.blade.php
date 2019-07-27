@@ -25,6 +25,9 @@
         <!-- Cart Area Start -->
         <div class="shopping-cart-area section-padding">
             <div class="container">
+                @if(session('success'))
+                    <div class="alert alert-success">{{session('success')}}</div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         <div class="wishlist-table-area table-responsive">
@@ -41,6 +44,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $total = 0 ?>
+                                        @if(session('cart'))
+                                            @foreach(session('cart') as $id => $details)
+                                                <?php $total += $details['price'] * $details['quantity'] ?>
                                     <tr>
                                         <td class="product-remove">
                                             <a href="#">
@@ -49,12 +56,12 @@
                                         </td>
                                         <td class="product-image">
                                             <a href="#">
-                                                <img src="img/shop/1.jpg" alt="">
+                                                <img src="{{ $details['image'] }}" alt="">
                                             </a>
                                         </td>
                                         <td class="t-product-name">
                                             <h3>
-                                                <a href="#">Cold mountain</a>
+                                                <a href="#">{{ $details['p_name'] }}</a>
                                             </h3>
                                         </td>
                                         <td class="product-edit">
@@ -63,46 +70,17 @@
                                             </p>
                                         </td>
                                         <td class="product-unit-price">
-                                            <p>$ 100</p>
+                                            <p>$ {{ $details['price'] }}</p>
                                         </td>
                                         <td class="product-quantity product-cart-details">
                                             <input type="number" value="1">
                                         </td>
                                         <td class="product-quantity">
-                                            <p>$ 100</p>
+                                            <p>$ {{ $details['price'] * $details['quantity'] }}</p>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="product-remove">
-                                            <a href="#">
-                                                <i class="flaticon-delete"></i>
-                                            </a>
-                                        </td>
-                                        <td class="product-image">
-                                            <a href="#">
-                                                <img src="img/shop/2.jpg" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="t-product-name">
-                                            <h3>
-                                                <a href="#">East of eden</a>
-                                            </h3>
-                                        </td>
-                                        <td class="product-edit">
-                                            <p>
-                                               <a href="#">Edit</a>
-                                            </p>
-                                        </td>
-                                        <td class="product-unit-price">
-                                            <p>$ 100</p>
-                                        </td>
-                                        <td class="product-quantity product-cart-details">
-                                            <input type="number" value="1">
-                                        </td>
-                                        <td class="product-quantity">
-                                            <p>$ 100</p>
-                                        </td>
-                                    </tr>
+                                @endforeach
+                            @endif
                                 </tbody>
                             </table>
                         </div>  
@@ -137,10 +115,10 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="subtotal-main-area">
                             <div class="subtotal-area">
-                                <h2>SUBTOTAL<span>$ 200</span></h2>
+                                <h2>SUBTOTAL<span>$ {{ $total }}</span></h2>
                             </div>
                             <div class="subtotal-area">
-                                <h2>GRAND TOTAL<span>$ 200</span></h2>
+                                <h2>GRAND TOTAL<span>$ {{ $total }}</span></h2>
                             </div>
                             <a href="#">CHECKOUT</a>
                             <p>Checkout With Multiple Addresses</p>
@@ -150,4 +128,44 @@
             </div>
         </div>
         <!-- Discount Area End -->
+@endsection
+@section('scripts')
+ 
+ 
+    <script type="text/javascript">
+ 
+        $(".update-cart").click(function (e) {
+           e.preventDefault();
+ 
+           var ele = $(this);
+ 
+            $.ajax({
+               url: '{{ url('update-cart') }}',
+               method: "patch",
+               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
+               success: function (response) {
+                   window.location.reload();
+               }
+            });
+        });
+ 
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+ 
+            var ele = $(this);
+ 
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-from-cart') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+ 
+    </script>
+ 
 @endsection
