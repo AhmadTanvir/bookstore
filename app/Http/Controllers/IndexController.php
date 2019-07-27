@@ -118,7 +118,7 @@ class IndexController extends Controller
  
             session()->put('cart', $cart);
  
-            return redirect('/')->with('success', 'Product added to cart successfully!');
+            return view('frontEnd/cart')->with('success', 'Product added to cart successfully!');
         }
  
         // if cart not empty then check if this product exist then increment quantity
@@ -128,7 +128,7 @@ class IndexController extends Controller
  
             session()->put('cart', $cart);
  
-            return redirect('/')->with('success', 'Product added to cart successfully!');
+            return view('frontEnd/cart')->with('success', 'Product added to cart successfully!');
  
         }
  
@@ -142,7 +142,7 @@ class IndexController extends Controller
  
         session()->put('cart', $cart);
  
-        return redirect('/')->with('success', 'Product added to cart successfully!');
+        return view('frontEnd/cart')->with('success', 'Product added to cart successfully!');
  
     }
 
