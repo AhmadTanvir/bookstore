@@ -65,7 +65,7 @@
                                         <div class="price-filter">
                                             <div id="slider-range"></div>
                                             <div class="price-slider-amount">
-                                                <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
+                                                <!-- <input type="text" id="amount" name="price"  placeholder="Add Your Price" /> -->
                                                 <div class="widget-buttom">
                                                     <input type="submit"  value="Filter"/>  
                                                     <input type="reset" value="CLEAR" />
