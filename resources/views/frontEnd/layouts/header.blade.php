@@ -9,7 +9,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-12 hidden-xs">
+                    <div class="col-md-8 col-sm-12 hidden-xs">
                         <div class="mainmenu text-center">
                             <nav>
                                 <ul id="nav">
@@ -36,7 +36,7 @@
                             </nav>
                         </div>                        
                     </div>
-                    <div class="col-md-1 hidden-sm">
+                    <div class="col-md-2 hidden-sm">
                         <div class="header-right">
                             <ul>
                                 @if(Auth::check())
