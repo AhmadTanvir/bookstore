@@ -1,6 +1,6 @@
     <!--Header Area Start-->
         <div class="header-area">
-            <div class="container">
+            <div style="padding-left: 100px; padding-right: 100px">
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-6">
                         <div class="header-logo">
@@ -9,82 +9,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-1 col-sm-6 visible-sm  col-xs-6">
-                        <div class="header-right">
-                            <ul>
-                                @if(Auth::check())
-                                    <li><a href="{{ url('/logout') }}"><i class="flaticon-lock"></i>Logout</a>
-                                </li>
-                                @else
-                                    <li>
-                                        <a href="account.html"><i class="flaticon-people"></i></a>
-                                    </li>
-                                @endif
-                                <li class="shoping-cart">
-                                    <a href="#">
-                                        <i class="flaticon-shop"></i>
-                                        <span>2</span>
-                                    </a>
-                                    <div class="add-to-cart-product">
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="{{asset('frontEnd/imag/shop/cart1.jpg')}}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <span>1</span>
-                                                    x
-                                                    <a href="single-product.html">East of eden</a>
-                                                </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="{{asset('frontEnd/imag/shop/cart1.jpg')}}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <!-- <span>1</span>
-                                                    x -->
-                                                    <a href="single-product.html">East of eden</a>
-                                                </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </div>
-                                        <div class="total-cart-price">
-                                            <div class="cart-product-line fast-line">
-                                                <span>Shipping</span>
-                                                <span class="free-shiping">$10.50</span>
-                                            </div>
-                                            <div class="cart-product-line">
-                                                <span>Total</span>
-                                                <span class="total">$ 140.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="cart-checkout">
-                                            <a href="checkout.html">
-                                                Check out
-                                                <i class="fa fa-chevron-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>                    
                     <div class="col-md-9 col-sm-12 hidden-xs">
                         <div class="mainmenu text-center">
                             <nav>
@@ -115,9 +39,16 @@
                     <div class="col-md-1 hidden-sm">
                         <div class="header-right">
                             <ul>
+                                @if(Auth::check())
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out" title="Logout"></i></a>
+                                </li>
+                                <li><a href="{{url('/myaccount')}}"><i class="fa fa-user" title="My Account"></i></a>
+                                </li>
+                                @else
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#myModal1"><i class="flaticon-people"></i></a>
                                 </li>
+                                @endif
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
@@ -142,7 +73,8 @@
                                                 <span class="count"> Quantity:{{ $details['quantity'] }}</span>
                                             </div>
                                             <div class="cart-product-remove">
-                                                <i class="fa fa-times remove-from-cart" data-id="{{ $id }}"></i>
+                                                <!-- <i class="fa fa-trash remove-from-cart" data-id="{{ $id }}"></i> -->
+                                                <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash"></i></button>
                                             </div>
                                         </div>
                                     @endforeach
