@@ -28,69 +28,57 @@
                 @if(session('success'))
                     <div class="alert alert-success">{{session('success')}}</div>
                 @endif
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="wishlist-table-area table-responsive">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th class="product-remove">Remove</th>
-                                        <th class="product-image">Image</th>
-                                        <th class="t-product-name">Product Name</th>
-                                        <th class="product-edit">Edit</th>
-                                        <th class="product-unit-price">Unit Price</th>
-                                        <th class="product-quantity">Quantity</th>
-                                        <th class="product-subtotal">Subtotal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $total = 0 ?>
-                                        @if(session('cart'))
-                                            @foreach(session('cart') as $id => $details)
-                                                <?php $total += $details['price'] * $details['quantity'] ?>
-                                    <tr>
-                                        <td class="product-remove">
-                                            <a href="#">
-                                                <i class="flaticon-delete"></i>
-                                            </a>
-                                        </td>
-                                        <td class="product-image">
-                                            <a href="#">
-                                                <img src="{{ $details['image'] }}" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="t-product-name">
-                                            <h3>
-                                                <a href="#">{{ $details['p_name'] }}</a>
-                                            </h3>
-                                        </td>
-                                        <td class="product-edit">
-                                            <p>
-                                                <a href="#">Edit</a>
-                                            </p>
-                                        </td>
-                                        <td class="product-unit-price">
-                                            <p>$ {{ $details['price'] }}</p>
-                                        </td>
-                                        <td class="product-quantity product-cart-details">
-                                            <input type="number" value="1">
-                                        </td>
-                                        <td class="product-quantity">
-                                            <p>$ {{ $details['price'] * $details['quantity'] }}</p>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                                </tbody>
-                            </table>
-                        </div>  
-                        <div class="shopingcart-bottom-area">
+                <table id="cart" class="table table-hover table-condensed">
+                    <thead>
+                    <tr>
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:10%">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+             
+                    <?php $total = 0 ?>
+             
+                    @if(session('cart'))
+                        @foreach(session('cart') as $id => $details)
+             
+                            <?php $total += $details['price'] * $details['quantity'] ?>
+             
+                            <tr>
+                                <td data-th="Product">
+                                    <div class="row">
+                                        <div class="col-sm-3 hidden-xs"><img src="{{ $details['image'] }}" width="100" height="100" class="img-responsive"/></div>
+                                        <div class="col-sm-9">
+                                            <h4 class="nomargin">{{ $details['p_name'] }}</h4>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-th="Price">${{ $details['price'] }}</td>
+                                <td data-th="Quantity">
+                                    <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                                </td>
+                                <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                                <td class="actions" data-th="">
+                                    <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
+                                    <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+             
+                    </tbody>
+                </table>
+                <div class="shopingcart-bottom-area">
                             <a class="left-shoping-cart" href="#">CONTINUE SHOPPING</a>
                             <div class="shopingcart-bottom-area pull-right">
                                 <a class="right-shoping-cart" href="#">CLEAR SHOPPING CART</a>
-                                <a class="right-shoping-cart" href="#">UPDATE SHOPPING CART</a>
+                                <a class="right-shoping-cart update-cart" href="#">UPDATE SHOPPING CART</a>
                             </div>
-                        </div>                  
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
