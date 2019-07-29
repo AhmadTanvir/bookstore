@@ -94,9 +94,10 @@ class IndexController extends Controller
     
     public function addToCart($id)
     {
-        $product = Products_model::find($id);
+        //$products=Products_model::all();
+        $products = Products_model::find($id);
  
-        if(!$product) {
+        if(!$products) {
  
             abort(404);
  
@@ -109,10 +110,10 @@ class IndexController extends Controller
  
             $cart = [
                     $id => [
-                        "p_name" => $product->p_name,
+                        "p_name" => $products->p_name,
                         "quantity" => 1,
-                        "price" => $product->price,
-                        "image" => $product->image
+                        "price" => $products->price,
+                        "image" => $products->image
                     ]
             ];
  
@@ -134,10 +135,10 @@ class IndexController extends Controller
  
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
-            "p_name" => $product->p_name,
+            "p_name" => $products->p_name,
             "quantity" => 1,
-            "price" => $product->price,
-            "image" => $product->image
+            "price" => $products->price,
+            "image" => $products->image
         ];
  
         session()->put('cart', $cart);
