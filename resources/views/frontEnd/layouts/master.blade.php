@@ -256,7 +256,7 @@
 
     <!-- for bootstrap working -->
     <!-- <script src="{{asset('frontEnd/js/bootstrap.js')}}"></script> -->
-<!-- <script>
+<script>
     // Instantiate EasyZoom instances
     var $easyzoom = $('.easyzoom').easyZoom();
 
@@ -286,6 +286,6 @@
             api2._init();
         }
     });
-</script> -->
+</script>
 </body>
 </html>
