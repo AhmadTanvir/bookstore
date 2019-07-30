@@ -1,4 +1,3 @@
-
-<footer class="footer footer-static footer-light">
-          <p class="clearfix text-muted text-center px-2"><span>Copyright  &copy; 2018 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">PIXINVENT </a>, All rights reserved. </span></p>
-</footer>
+<!-- <div class="row-fluid">
+    <div id="footer" class="span12">Copyright ©2015 Laravel5.7 (Cambodia). All rights reserved.</div>
+</div> -->
