@@ -23,6 +23,7 @@ Route::get('add-to-cart/{id}', 'IndexController@addToCart');
 Route::get('/get-product-attr','IndexController@getAttrs');
 ///// Cart Area /////////
 Route::post('/addToCart','CartController@addToCart')->name('addToCart');
+Route::get('/addToCart','IndexController@addToCart')->name('addToCart');
 Route::get('/viewcart','CartController@index');
 Route::get('/cart/deleteItem/{id}','CartController@deleteItem');
 Route::get('/cart/update-quantity/{id}/{quantity}','CartController@updateQuantity');

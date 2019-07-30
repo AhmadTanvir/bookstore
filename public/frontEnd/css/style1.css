@@ -1772,7 +1772,7 @@ ul.product-tabs {
 #quantity-wanted-p input {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   border: medium none !important;
-  height: 46px;
+  height: 25px;
   line-height: 42px;
   text-align: center;
   width: 45px;
@@ -1794,7 +1794,7 @@ ul.product-tabs {
 }
 .product-attributes span a {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 .wish-btn > span {
   color: #b8b8b8;
