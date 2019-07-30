@@ -4,21 +4,12 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
+                <a href="{{url('/admin')}}" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
             </header>
             <nav class="dash-nav-list">
-                <a href="index.html" class="dash-nav-item">
+                <a href="{{url('/admin')}}" class="dash-nav-item">
                     <i class="fas fa-home"></i> Dashboard </a>
-                <div class="dash-nav-dropdown">
-                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-list"></i> Categories </a>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Add New Category</a>
-                    </div>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">List Categories</a>
-                    </div>
-                </div>
+                
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-list"></i> Products </a>
@@ -31,12 +22,22 @@
                 </div>
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-list"></i> Coupons </a>
+                        <i class="fas fa-list"></i> Categories </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Add New Coupon</a>
+                        <a href="{{url('/admin/category/create')}}" class="dash-nav-dropdown-item">Add New Category</a>
                     </div>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">List Coupons</a>
+                        <a href="{{route('category.index')}}" class="dash-nav-dropdown-item">List Categories</a>
+                    </div>
+                </div>
+                <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <i class="fas fa-list"></i> Coupons </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{route('coupon.create')}}" class="dash-nav-dropdown-item">Add New Coupon</a>
+                    </div>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="{{route('coupon.index')}}" class="dash-nav-dropdown-item">List Coupons</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown ">
@@ -77,6 +78,10 @@
                         <a href="http://hackerthemes.com" target="_blank" class="dash-nav-dropdown-item">HackerThemes</a>
                     </div>
                 </div>
+
+
+                <div class="dash-nav-list"><a href="{{ url('logout') }}" class="dash-nav-item">
+                    <i class="fas fa-sign-out-alt"></i> Logout </a></div>
             </nav>
         </div>
         <div class="dash-app">

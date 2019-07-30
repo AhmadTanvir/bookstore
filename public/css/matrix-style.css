@@ -196,7 +196,7 @@ hr{ border-top-color:#dadada;}
 /* Content */
 #content {
 	background: none repeat scroll 0 0 #eeeeee;
-	margin-left: 220px;
+	margin-left: 0;
 	margin-right: 0;
 	padding-bottom: 25px;
 	position: relative;

@@ -2,7 +2,7 @@
 @section('title','List Products')
 @section('content')
     <div id="breadcrumb"> <a href="{{url('/admin')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{route('product.index')}}" class="current">Products</a></div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 10px">
         @if(Session::has('message'))
             <div class="alert alert-success text-center" role="alert">
                 <strong>Well done!</strong> {{Session::get('message')}}
@@ -47,8 +47,8 @@
                                                     <a href="{{route('image-gallery.show',$product->id)}}" class=""><i class="fa fa-image"></i><span class="tooltipp">Add Images</span></a></td>
                                                 <td class="product-btns" style="vertical-align: middle;text-align: center;"><a href="{{route('product_attr.show',$product->id)}}"><i class="fa fa-plus"><span class="tooltipp">Add Attr</span></i></a></td>
                                                 <td class="product-btns" style="text-align: center; vertical-align: middle;">
-                                                    <a href="#myModal{{$product->id}}" data-toggle="modal"><i class="fa fa-eye"><span class="tooltipp">view</span></i></a>
-                                                    <a href="{{route('product.edit',$product->id)}}"><i class="fa fa-edit"></i><span class="tooltipp">edit</span></a>
+                                                    <a href="#myModal{{$product->id}}" data-toggle="modal"><i class="fa fa-eye"><span class="tooltipp">view</span></i></a>&nbsp;
+                                                    <a href="{{route('product.edit',$product->id)}}"><i class="fa fa-edit"></i><span class="tooltipp">edit</span></a>&nbsp;
                                                     <a href="javascript:" rel="{{$product->id}}" rel1="delete-product" class="deleteRecord"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
