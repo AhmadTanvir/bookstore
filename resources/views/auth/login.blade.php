@@ -1,69 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <title>Login</title><meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/matrix-login.css')}}" />
-    <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/spur.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="../js/chart-js-config.js"></script>
+    <title>Spur - A Bootstrap Admin Template</title>
 </head>
+
 <body>
-<div id="loginbox">
-    <form id="loginform" class="form-vertical" method="POST" action="{{ route('login') }}">
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
-        <div class="control-group normal_text"> <h3><img src="{{asset('img/logo.png')}}" alt="Logo" /></h3></div>
-        <div class="control-group">
-            <div class="controls">
-                <div class="main_input_box">
-                    <span class="add-on bg_lg"><i class="icon-user"> </i></span>
-                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-                    @if ($errors->has('email'))
-                        <br><span class="invalid-feedback" style="color: white;">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
+    <div class="form-screen">
+        <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
+        <div class="card account-dialog">
+            <div class="card-header bg-primary text-white"> Please sign in </div>
+            <div class="card-body">
+                <form action="{{ route('login') }}" method="post">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <div class="form-group">
+                        <span class="add-on bg_lg"><i class="icon-user"> </i></span>
+                        <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        @if ($errors->has('email'))
+                            <br><span class="invalid-feedback" style="color: white;">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                        <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password">
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="account-dialog-actions">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <a class="account-dialog-link" href="signup.html">Create a new account</a>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="control-group">
-            <div class="controls">
-                <div class="main_input_box">
-                    <span class="add-on bg_ly"><i class="icon-lock"></i></span>
-                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-                    @if ($errors->has('password'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-        </div>
-        <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>
-            <span class="pull-right"><button type="submit" class="btn btn-success">Login</button></span>
-        </div>
-    </form>
-    <form id="recoverform" action="#" class="form-vertical">
-        <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
-
-        <div class="controls">
-            <div class="main_input_box">
-                <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
-            </div>
-        </div>
-
-        <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-            <span class="pull-right"><a class="btn btn-info">Recover</a></span>
-        </div>
-    </form>
-</div>
-
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/matrix.login.js')}}"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../js/spur.js"></script>
 </body>
 
 </html>
