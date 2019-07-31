@@ -17,17 +17,17 @@
     <link href="{{asset('frontEnd/css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/price-range.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/venobox/venobox.css')}}" rel="stylesheet">
-    <!-- <link href="{{asset('frontEnd/css/main.css')}}" rel="stylesheet"> -->
+    {{-- <link href="{{asset('frontEnd/css/main.css')}}" rel="stylesheet"> --}}
     <link href="{{asset('frontEnd/lib/css/nivo-slider.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/lib/css/preview.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/owl.carousel.css')}}" rel="stylesheet">
-    <!-- <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet"> -->
+    <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/style1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/font-awesome.css')}}" rel="stylesheet">
-    <!-- <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet"> -->
+    <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet">
     <script src="{{asset('frontEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <!--[if lt IE 9]>
     <script src="{{asset('frontEnd/js/html5shiv.js')}}"></script>
@@ -122,26 +122,27 @@
 
         });
     </script>
-<script src="{{asset('frontEnd/js/minicart.js')}}"></script>
+{{-- <script src="{{asset('frontEnd/js/minicart.js')}}"></script> --}}
     <script>
-        paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
+        // paypalm.minicartk.render(); 
+        //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
 
-        paypalm.minicartk.cart.on('checkout', function (evt) {
-            var items = this.items(),
-                len = items.length,
-                total = 0,
-                i;
+        // paypalm.minicartk.cart.on('checkout', function (evt) {
+        //     var items = this.items(),
+        //         len = items.length,
+        //         total = 0,
+        //         i;
 
             // Count the number of each item in the cart
-            for (i = 0; i < len; i++) {
-                total += items[i].get('quantity');
-            }
+            // for (i = 0; i < len; i++) {
+            //     total += items[i].get('quantity');
+            // }
 
-            if (total < 3) {
-                alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-                evt.preventDefault();
-            }
-        });
+            // if (total < 3) {
+            //     alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+            //     evt.preventDefault();
+            // }
+        // });
     </script>
     <!-- //cart-js -->
 
