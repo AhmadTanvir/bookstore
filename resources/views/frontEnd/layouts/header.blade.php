@@ -50,67 +50,10 @@
                                 </li>
                                 @endif
                                 <li class="shoping-cart">
-                                    <a href="#">
+                                    <a href="{{url('/viewcart')}}">
                                         <i class="flaticon-shop"></i>
-                                        <span>{{ count(session('cart')) }}</span>
+                                        <span>{{ count(session('session_id')) }}</span>
                                     </a>
-                                    <div class="add-to-cart-product">
-                                        @if(session('cart'))
-                                            @foreach(session('cart') as $id => $details)
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="">
-                                                    <img src="{{ $details['image'] }}" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <!-- <span></span> -->
-                                                    <!-- <i class="flacticon-cross remove-from-cart" data-id="{{ $id }}"></i> -->
-                                                    <a href="">{{ $details['p_name'] }}</a>
-                                                </p>
-                                                <span class="cart-price">Price: $ {{ $details['price'] }}</span><br>
-                                                <span class="count"> Quantity:{{ $details['quantity'] }}</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <!-- <i class="fa fa-trash remove-from-cart" data-id="{{ $id }}"></i> -->
-                                                <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    @endif
-                                    <?php $total = 0 ?>
-                                    @if(session('cart'))
-                                        @foreach(session('cart') as $id => $details)
-                                            <?php $total += $details['price'] * $details['quantity'] ?>
-                                        @endforeach
-                                    @endif
-                                        <div class="total-cart-price">
-                                            <div class="cart-product-line fast-line">
-                                                <span style="float: left;">Shipping</span>
-                                                <span class="free-shiping">$10.50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                            </div>
-                                            <div class="cart-product-line">
-                                                <span style="float: left;">Total</span>
-                                                <span class="total">$ {{ $total }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                <div></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 cart-checkout">
-                                            <div style="float: right;width: 50%">
-                                                <a href="{{url('/check-out')}}">
-                                                    Check out
-                                                    <i class="fa fa-chevron-right"></i>
-                                                </a>
-                                            </div>
-                                            <div style="float: left;width: 50%">
-                                                <a href="{{url('/viewcart')}}">
-                                                    View Cart
-                                                    <i class="fa fa-chevron-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </li>
                             </ul>
                         </div>
