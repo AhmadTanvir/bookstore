@@ -9,22 +9,23 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumbs">
-                           <h2>SHOP LEFT SIDEBAR</h2> 
-                           <ul class="breadcrumbs-list">
-                                <li>
-                                    <a title="Return to Home" href="index.html">Home</a>
-                                </li>
-                                <li>SHOP LEFT SIDEBAR</li>
-                            </ul>
+                           <?php
+                                if($byCate!=""){
+                                    $products=$list_product;
+                                    echo '<h2 class="title text-center">Category '.$byCate->name.'</h2>';
+                                }else{
+                                    echo '<h2 class="title text-center"> Book List </h2>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div> 
         <!-- Breadcrumbs Area Start --> 
-        <?php
+        <!-- <?php
             $categories=DB::table('categories')->where([['status',1],['parent_id',0]])->get();
-        ?>
+        ?> -->
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
             <div class="container">
@@ -34,10 +35,10 @@
                             <div class="shop-widget-top">
                                 <aside class="widget widget-categories">
                                     <h2 class="sidebar-title text-center">CATEGORY</h2>
-        @foreach($categories as $category)
-            <?php
-                $sub_categories=DB::table('categories')->select('id','name')->where([['parent_id',$category->id],['status',1]])->get();
-            ?>
+                            <!-- @foreach($categories as $category)
+                                <?php
+                                    $sub_categories=DB::table('categories')->select('id','name')->where([['parent_id',$category->id],['status',1]])->get();
+                                ?>
                                     <ul class="sidebar-menu">
                                         <li>
                                             <a data-toggle="collapse" data-parent="#accordian" href="#sportswear{{$category->id}}">
@@ -57,7 +58,9 @@
                                         </li>
                                         @endif
                                     </ul>
-                            @endforeach
+                            @endforeach -->
+                                @include('frontEnd.layouts.category_menu')
+
                                 </aside> 
                                 <aside class="widget shop-filter">
                                     <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
@@ -179,16 +182,18 @@
                             <div class="tab-content">
                                 <div class="row tab-pane fade in active" id="home">
                                     <div class="shop-single-product-area">
+                                    @foreach($products as $product)
+                                        @if($product->category->status==1)
                                         <div class="col-md-4 col-sm-6">
                                             <div class="single-banner">
                                                 <div class="product-wrapper">
                                                     <a href="#" class="single-banner-image-wrapper">
-                                                        <img alt="" src="img/featured/1.jpg">
-                                                        <div class="price"><span>$</span>160</div>
+                                                        <img alt="" src="{{url('products/small/',$product->image)}}">
+                                                        <div class="price"><span>$</span>{{$product->price}}</div>
                                                     </a>
                                                     <div class="product-description">
                                                         <div class="functional-buttons">
-                                                            <a href="#" title="Add to Cart">
+                                                            <a href="{{url('/product-detail',$product->id)}}" title="Add to Cart">
                                                                 <i class="fa fa-shopping-cart"></i>
                                                             </a>
                                                             <a href="#" title="Add to Wishlist">
@@ -202,7 +207,7 @@
                                                 </div>
                                                 <div class="banner-bottom text-center">
                                                     <div class="banner-bottom-title">
-                                                        <a href="#">East of eden</a>
+                                                        <a href="{{url('/product-detail',$product->id)}}">{{$product->p_name}}</a>
                                                     </div>
                                                     <div class="rating-icon">
                                                         <i class="fa fa-star icolor"></i>
@@ -214,7 +219,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 col-sm-6">
+                                        @endif
+                                    @endforeach
+                                        <!-- <div class="col-md-4 col-sm-6">
                                             <div class="single-banner">
                                                 <div class="product-wrapper">
                                                     <a href="#" class="single-banner-image-wrapper">
@@ -493,7 +500,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div id="menu1" class="tab-pane fade">

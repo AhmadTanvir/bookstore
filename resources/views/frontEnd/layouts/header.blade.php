@@ -15,7 +15,7 @@
                                 <ul id="nav">
                                     <li><a href="{{url('/')}}">HOME</a></li>
                                     <li><a href="{{url('/list-products')}}">FEATURED</a></li>
-                                    <li><a href="shop.html">REVIEW BOOK</a></li>
+                                    <li><a href="shop.html">BOOK REVIEW</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>
                                     <li><a href="#">pages</a>
                                         <ul class="sub-menu">

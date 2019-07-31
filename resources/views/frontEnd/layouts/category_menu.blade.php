@@ -2,7 +2,7 @@
     <?php
         $categories=DB::table('categories')->where([['status',1],['parent_id',0]])->get();
     ?>
-    <h2>Category</h2>
+    <!-- <h2>Category</h2> -->
     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
         @foreach($categories as $category)
             <?php

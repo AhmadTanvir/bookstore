@@ -14,20 +14,20 @@
     <link href="{{asset('frontEnd/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/pe-icon-7-stroke.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/flaticon.css')}}" rel="stylesheet">
-    <!-- <link href="{{asset('frontEnd/css/prettyPhoto.css')}}" rel="stylesheet"> -->
-    <!-- <link href="{{asset('frontEnd/css/price-range.css')}}" rel="stylesheet"> -->
+    <link href="{{asset('frontEnd/css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/price-range.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/venobox/venobox.css')}}" rel="stylesheet">
     <!-- <link href="{{asset('frontEnd/css/main.css')}}" rel="stylesheet"> -->
     <link href="{{asset('frontEnd/lib/css/nivo-slider.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/lib/css/preview.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/owl.carousel.css')}}" rel="stylesheet">
-    <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet">
+    <!-- <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet"> -->
     <link href="{{asset('frontEnd/css/style1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/popuo-box.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/jquery-ui1.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/font-awesome.css')}}" rel="stylesheet">
-    {{-- <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet"> --}}
+    <!-- <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet"> -->
     <script src="{{asset('frontEnd/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <!--[if lt IE 9]>
     <script src="{{asset('frontEnd/js/html5shiv.js')}}"></script>
@@ -46,7 +46,7 @@
 
 
 <script src="{{asset('frontEnd/js/vendor/jquery-1.12.0.min.js')}}"></script>
-<!-- <script src="{{asset('frontEnd/js/jquery.js')}}"></script> -->
+<script src="{{asset('frontEnd/js/jquery.js')}}"></script>
 <script src="{{asset('frontEnd/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('frontEnd/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('frontEnd/js/jquery-ui.min.js')}}"></script>
@@ -64,8 +64,8 @@
 <script src="{{asset('frontEnd/lib/js/jquery.nivo.slider.js')}}"></script>
 <script src="{{asset('frontEnd/lib/home.js')}}"></script>
 <script src="{{asset('frontEnd/js/main.js')}}"></script>
-<!-- <script src="{{asset('frontEnd/js/price-range.js')}}"></script> -->
-<!-- <script src="{{asset('frontEnd/js/jquery.prettyPhoto.js')}}"></script> -->
+<script src="{{asset('frontEnd/js/price-range.js')}}"></script>
+<script src="{{asset('frontEnd/js/jquery.prettyPhoto.js')}}"></script>
 <script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
 <!-- <script src="{{asset('frontEnd/js/jquery-2.1.4.min.js')}}"></script> -->
     <!-- //jquery -->
@@ -256,7 +256,7 @@
 
     <!-- for bootstrap working -->
     <!-- <script src="{{asset('frontEnd/js/bootstrap.js')}}"></script> -->
-<!-- <script>
+<script>
     // Instantiate EasyZoom instances
     var $easyzoom = $('.easyzoom').easyZoom();
 
@@ -286,6 +286,6 @@
             api2._init();
         }
     });
-</script> -->
+</script>
 </body>
 </html>

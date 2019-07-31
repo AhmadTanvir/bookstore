@@ -13,6 +13,7 @@ use App\Products_model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Session;
+use DB;
 
 class IndexController extends Controller
 {
@@ -25,7 +26,8 @@ class IndexController extends Controller
     
     public function index(){
         $products=Products_model::all();
-        return view('frontEnd.index',compact('products','cart_datas','total_price'));
+        $newbooks=Products_model::take(3)->get();
+        return view('frontEnd.index',compact('products','cart_datas','total_price','newbooks'));
     }
     public function shop(){
         $products=Products_model::all();
@@ -52,6 +54,13 @@ class IndexController extends Controller
         $result_select=ProductAtrr_model::where(['products_id'=>$attr[0],'size'=>$attr[1]])->first();
         echo $result_select->price."#".$result_select->stock;
     }
+    // public function show($id)
+    // {
+    //     $menu_active =3;
+    //     $newbooks=Products_model::where('id',$id)->get();
+    //     $product=Products_model::findOrFail($id);
+    //     return view('frontEnd.index',compact('menu_active','product','newbooks'));
+    // }
     public function getPriceRange($low,$high){
         $products           = Product::whereBetween('price',[$low,$high])->get();
         return view('categorylist')->with('products',$products)->with('cart',$this->getCart())->with('searchType','Price Range')->with('searchName','$'.$low.' - $'. $high);
