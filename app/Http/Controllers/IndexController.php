@@ -101,89 +101,39 @@ class IndexController extends Controller
         return view('frontEnd.index')->with('products',$products)->with('cart',$this->getCart())->with('searchType','Shopper\'s Select')->with('searchName','New Arrivals');
     }
     
-    public function addToCart($id)
-    {
-        //$products=Products_model::all();
-        $products = Products_model::find($id);
- 
-        if(!$products) {
- 
-            abort(404);
- 
-        }
- 
-        $cart = session()->get('cart');
- 
-        // if cart is empty then this the first product
-        if(!$cart) {
- 
-            $cart = [
-                    $id => [
-                        "p_name" => $products->p_name,
-                        "quantity" => 1,
-                        "price" => $products->price,
-                        "image" => $products->image
-                    ]
-            ];
- 
-            session()->put('cart', $cart);
- 
-            return view('frontEnd/cart')->with('success', 'Product added to cart successfully!');
-        }
- 
-        // if cart not empty then check if this product exist then increment quantity
-        if(isset($cart[$id])) {
- 
-            $cart[$id]['quantity']++;
- 
-            session()->put('cart', $cart);
- 
-            return view('frontEnd/cart')->with('success', 'Product added to cart successfully!');
- 
-        }
- 
-        // if item not exist in cart then add to cart with quantity = 1
-        $cart[$id] = [
-            "p_name" => $products->p_name,
-            "quantity" => 1,
-            "price" => $products->price,
-            "image" => $products->image
-        ];
- 
-        session()->put('cart', $cart);
- 
-        return view('frontEnd/cart')->with('success', 'Product added to cart successfully!');
- 
-    }
-
-    public function update(Request $request)
-    {
-        if($request->id and $request->quantity)
-        {
-            $cart = session()->get('cart');
- 
-            $cart[$request->id]["quantity"] = $request->quantity;
- 
-            session()->put('cart', $cart);
- 
-            session()->flash('success', 'Cart updated successfully');
-        }
-    }
- 
-    public function remove(Request $request)
-    {
-        if($request->id) {
- 
-            $cart = session()->get('cart');
- 
-            if(isset($cart[$request->id])) {
- 
-                unset($cart[$request->id]);
- 
-                session()->put('cart', $cart);
+    public function addToCart(Request $request){
+        $inputToCart=$request->all();
+        $session_id=Session::get('session_id');
+        Session::forget('discount_amount_price');
+        Session::forget('coupon_code');
+        if($inputToCart['size']==""){
+            return back()->with('message','Please select Size');
+        }else{
+            $stockAvailable=DB::table('product_att')->select('stock','sku')->where(['products_id'=>$inputToCart['products_id'],
+                'price'=>$inputToCart['price']])->first();
+            if($stockAvailable->stock>=$inputToCart['quantity']){
+                $inputToCart['user_email']='weshare@gmail.com';
+                $session_id=Session::get('session_id');
+                if(empty($session_id)){
+                    $session_id=str_random(40);
+                    Session::put('session_id',$session_id);
+                }
+                $inputToCart['session_id']=$session_id;
+                $sizeAtrr=explode("-",$inputToCart['size']);
+                $inputToCart['size']=$sizeAtrr[1];
+                $inputToCart['product_code']=$stockAvailable->sku;
+                $count_duplicateItems=Cart_model::where(['products_id'=>$inputToCart['products_id'],
+                    'product_color'=>$inputToCart['product_color'],
+                    'size'=>$inputToCart['size']])->count();
+                if($count_duplicateItems>0){
+                    return back()->with('message','This Item Added already');
+                }else{
+                    Cart_model::create($inputToCart);
+                    return back()->with('message','Add To Cart Already');
+                }
+            }else{
+                return back()->with('message','Stock is not Available!');
             }
- 
-            session()->flash('success', 'Product removed successfully');
         }
     }
 }
