@@ -37,10 +37,10 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-6 col-sm-6">
+                                            {{-- <div class="col-md-6 col-sm-6">
                                                 <div class="checkout-collapse-inner">
                                                     <h2 class="collapse-title">CHECKOUT AS A GUEST OR REGISTER</h2>
                                                     <h4 class="collapse-sub-title">Register with us for future convenience:</h4>
@@ -60,22 +60,25 @@
                                                     <p>Easy access to your order history and status</p>
                                                     <button class="btn btn-default btn-checkout">CONTINUE</button>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
+                                            </div> --}}
+                                            <div style="margin-left: 170px" class="col-md-6 col-sm-6" align="center">
                                             <div class="checkout-collapse-inner">
                                                 <h2 class="collapse-title">LOGIN</h2>
                                                 <h4 class="collapse-sub-title">Already registered?</h4>
-                                                <p class="login-info">Please log in below:</p>
-                                                <form action="#">
+                                                if Don't have an account?
+                                                <a href="#" data-toggle="modal" data-target="#myModal2">Sign Up Now</a>
+                                                <p class="login-info">OR Please log in below:</p>
+                                                <form action="{{url('/user_login')}}" method="post">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                     <div class="form-row">
-                                                        <input type="email" placeholder="Email Address*"/>
+                                                        <input type="email" placeholder="Email Address*" name="email"/>
                                                     </div>
                                                     <div class="form-row">
-                                                        <input type="password" placeholder="Password*"/>
-                                                    </div>  
+                                                        <input type="password" placeholder="Password*" name="password"/>
+                                                    </div>
+                                                    <a href="#">forgot your password?</a><br><br>  
                                                     <div class="check-register login-button">
-                                                        <a href="#">forgot your password?</a>
-                                                        <input class="btn btn-default" type="submit" value="LOGIN"/>
+                                                        <input class="btn btn-info" type="submit" value="LOGIN"/>
                                                     </div>                                              
                                                 </form>
                                             </div>
@@ -93,13 +96,20 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
                                         <div class="row">
+                                          <form action="{{url('/submit-checkout')}}" method="post" class="form-horizontal">
+                                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                            <div class="col-md-12">
+                                                <p class="form-row">
+                                                    <input type="text" placeholder="First Name *">
+                                                </p>
+                                            </div>
                                             <div class="col-md-12">
                                                 <div class="shop-select">
-                                                    <label>Country <span class="required">*</span></label>
                                                     <select>
+                                                        <option value="volvo">Select Country*</option>
                                                         <option value="volvo">Bangladesh</option>
                                                         <option value="saab">Algeria</option>
                                                         <option value="mercedes">Afghanistan</option>
@@ -110,17 +120,7 @@
                                                         <option value="audi5">Dominican Republic</option>
                                                     </select>                                       
                                                 </div>  
-                                            </div>  
-                                            <div class="col-md-6">
-                                                <p class="form-row">
-                                                    <input type="text" placeholder="First Name *">
-                                                </p>
-                                            </div>  
-                                            <div class="col-md-6">
-                                                <p class="form-row">
-                                                    <input type="text" placeholder="Last Name *">
-                                                </p>
-                                            </div>  
+                                            </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
                                                     <input type="text" placeholder="Company Name">
