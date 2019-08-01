@@ -61,8 +61,8 @@ class ProductsController extends Controller
                 $small_image_path=public_path('products/small/'.$fileName);
                 //Resize Image
                 Image::make($image)->save($large_image_path);
-                Image::make($image)->resize(160,160)->save($medium_image_path);
-                Image::make($image)->resize(70,80)->save($small_image_path);
+                Image::make($image)->resize(500,500)->save($medium_image_path);
+                Image::make($image)->resize(300,300)->save($small_image_path);
                 $formInput['image']=$fileName;
             }
         }

@@ -136,4 +136,12 @@ class IndexController extends Controller
             }
         }
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $products = Products_model::where('p_name', 'like', '%' . $query . '%')->get();
+
+        return view('frontEnd.search-results',compact('products'));
+    }
 }

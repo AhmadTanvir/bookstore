@@ -1,5 +1,6 @@
 <?php
-
+use App\Products_model;
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,9 @@ Route::get ('sort/{type}','IndexController@getSort');
 Route::get ('new-arrivals','IndexController@newArrivals');
 Route::get('/product-detail/{id}','IndexController@detialpro');
 Route::get('add-to-cart/{id}', 'IndexController@addToCart');
+
+Route::get('/search', 'IndexController@search')->name('search');
+
 ////// get Attribute ////////////
 Route::get('/get-product-attr','IndexController@getAttrs');
 ///// Cart Area /////////

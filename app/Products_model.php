@@ -16,4 +16,8 @@ class Products_model extends Model
     public function attributes(){
         return $this->hasMany(ProductAtrr_model::class,'products_id','id');
     }
+    public function scopeSearch($query , $s){
+        return $query->where('p_name','like','%'.$s.'%')->orWhere('description','like','%'.$s.'%');
+
+    }
 }

@@ -21,8 +21,9 @@
                     </div>
                     <!-- layer 4 -->
                     <div class="layer-4">
-                        <form action="#" class="title-4">
-                            <input type="text" placeholder="Enter your book title here">
+                        <form action="{{ url('/search')}}" method="get" role="search" class="title-4 form-inline">
+                            {{ csrf_field() }}
+                            <input type="text" class="form-control" name="s" value="{{isset($s) ? $s : ''}}" placeholder="Enter your book title here">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
@@ -43,8 +44,9 @@
                     </div>
                     <!-- layer 4 -->
                     <div class="layer-4">
-                        <form action="#" class="title-4">
-                            <input type="text" placeholder="Enter your book title here">
+                        <form action="{{ url('/search')}}" method="get" role="search" class="title-4 form-inline">
+                            {{ csrf_field() }}
+                            <input type="text" class="form-control" name="s" value="{{isset($s) ? $s : ''}}" placeholder="Enter your book title here">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
