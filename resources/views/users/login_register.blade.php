@@ -45,27 +45,6 @@
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
                                         <div class="row">
-                                            {{-- <div class="col-md-6 col-sm-6">
-                                                <div class="checkout-collapse-inner">
-                                                    <h2 class="collapse-title">CHECKOUT AS A GUEST OR REGISTER</h2>
-                                                    <h4 class="collapse-sub-title">Register with us for future convenience:</h4>
-                                                    <form action="#">
-                                                        <div class="check-register">
-                                                            <input type="radio" />
-                                                            <label>Checkout as Guest</label>
-                                                        </div>
-                                                        <div class="check-register">
-                                                            <input type="radio" />
-                                                            <label>Register</label>
-                                                        </div>                                                  
-                                                    </form>
-                                                    <p>Register and save time!</p>
-                                                    <p>Register with us for future convenience:</p>
-                                                    <p>Fast and easy check out</p>
-                                                    <p>Easy access to your order history and status</p>
-                                                    <button class="btn btn-default btn-checkout">CONTINUE</button>
-                                                </div>
-                                            </div> --}}
                                             <div style="margin-left: 170px" class="col-md-8 col-sm-8">
                                             <div class="checkout-collapse-inner">
                                                 <h2 class="collapse-title">LOGIN</h2>
