@@ -1,12 +1,28 @@
 @extends('frontEnd.layouts.master')
 @section('title','Search Results')
-@section('content')   
+@section('content')
+        <div class="container">
+            @if(session()->has('success_message'))
+                <div class="alert alert-success">
+                    {{ session()->get('success_message') }}
+                </div>
+            @endif
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
         <!-- Featured Product Area Start -->
         <div class="container search-container">
             <h1>Search Results</h1>
-            <p>5 result(s) for '{{request()->input('query')}}'</p>
+            <p>{{$products->count()}} result(s) for {{ request()->input('query') }}</p>
             @foreach($products as $product)
-                <div>{{ $product ->name }}</div>
+                <div>{{ $product ->p_name }}</div>
             @endforeach
         </div>
         <!-- Testimonial Area Start -->
