@@ -34,7 +34,7 @@
 
                 <div class="col-sm-12">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="data-table" id="checkout-review-table">
                             <thead>
                             <tr>
                                 <th>Name</th>
@@ -63,7 +63,7 @@
                         <div class="review-payment">
                             <h2>Review & Payment</h2>
                         </div>
-                        <div class="table-responsive cart_info">
+                        <!-- <div class="table-responsive cart_info">
                             <table class="table table-condensed">
                                 <thead>
                                 <tr class="cart_menu">
@@ -128,17 +128,93 @@
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="payment-options">
-                            <span>Select Payment Method : </span>
-                        <span>
-                            <label><input type="radio" name="payment_method" value="COD" checked> Cash On Delivery</label>
-                        </span>
-                            <span>
-                            <label><input type="radio" name="payment_method" value="Paypal"> Paypal</label>
-                        </span>
-                            <button type="submit" class="btn btn-primary" style="float: right;">Order Now</button>
-                        </div>
+                        </div> -->
+                        <!-- <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive"> -->
+                            <div class="panel-body no-padding">
+                                <div class="order-review" id="checkout-review">    
+                                    <div class="table-responsive" id="checkout-review-table-wrapper">
+                                        <table class="data-table" id="checkout-review-table">
+                                            <thead>
+                                                <tr>
+                                                    <th >Item</th>
+                                                    <th >Product Name</th>
+                                                    <th >Price</th>
+                                                    <th >Quantity</th>
+                                                    <th >Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                  @foreach($cart_datas as $cart_data)
+                        <?php
+                        $image_products=DB::table('products')->select('image')->where('id',$cart_data->products_id)->get();
+                        ?>
+                                                <tr>
+                                                    <td width="500px">
+                                                        @foreach($image_products as $image_product)
+                                                            <a href="">
+                                                                <img height="130" width="130" src="{{url('products/small', $image_product->image)}}">
+                                                            </a>
+                                                        @endforeach
+                                                    </td>
+                                                    <td class="cart_description">
+                                                        <h3 class="product-name"><a href="">{{$cart_data->product_name}}</a></h3>
+                                                        <p>{{$cart_data->product_code}} | {{$cart_data->size}}</p>
+                                                    </td>
+                                                    <td class="cart_price"><span class="cart-price"><span class="check-price">$ {{$cart_data->price}}</span></span></td>
+                                                    <td class="cart_quantity">
+                                                        <p>{{$cart_data->quantity}}</p>
+                                                    </td>
+                                                    <!-- sub total starts here -->
+                                                    <td class="cart_total"><span class="cart-price"><span class="check-price">$ {{$cart_data->price*$cart_data->quantity}}</span></span></td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4">Subtotal</td>
+                                                    <td><span class="check-price">$ {{$total_price}}</span></td>
+                                                </tr>
+                                            @if(Session::has('discount_amount_price'))
+                                                <tr>
+                                                    <td colspan="4">Coupon Discount</td>
+                                                    <td><span class="check-price">$ {{Session::get('discount_amount_price')}}</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">Grand Total</td>
+                                                    <td><span class="check-price">$ {{$total_price-Session::get('discount_amount_price')}}</span></td>
+                                                </tr>
+                                            @else
+                                                <tr>
+                                                    <td colspan="4">Shipping Handling (Flat Rate - Fixed)</td>
+                                                    <td><span class="check-price">$10.00</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Grand Total</strong></td>
+                                                    <td><strong><span class="check-price">$ {{$total_price}}</span></strong></td>
+                                                </tr>
+                                            @endif
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div style="float: right;" id="checkout-review-submit">
+                                        <div class="cart-btn-3" id="review-buttons-container">
+                                            <p class="left">Forgot an Item? <a href="#">Edit Your Cart</a></p>
+                                            <button style="float: right;" type="submit" title="Place Order" class="btn btn-primary"><span>Place Order</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="payment-options">
+                                    <span>Select Payment Method : </span>
+                                        <span>
+                                            <label><input type="radio" name="payment_method" value="COD" checked> Cash On Delivery</label>
+                                        </span>
+                                            <span>
+                                            <label><input type="radio" name="payment_method" value="Paypal"> Paypal</label>
+                                        </span>
+                                            <!-- <button type="submit" class="btn btn-primary" style="float: right;">Order Now</button> -->
+                                        </div>
+                                </div>
+                            </div>
+                        <!-- </div> -->
                     </section>
 
                 </div>
