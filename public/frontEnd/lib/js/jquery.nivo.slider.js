@@ -128,14 +128,14 @@
                 clearInterval(timer);
                 timer = '';
                 vars.currentSlide -= 2;
-                nivoRun(slider, kids, settings, '<i class="flaticon-arrows-1"></i>');
+                nivoRun(slider, kids, settings, 'prev');
             });
             
             $(slider).on('click', 'a.nivo-nextNav', function(){
                 if(vars.running) { return false; }
                 clearInterval(timer);
                 timer = '';
-                nivoRun(slider, kids, settings, '<i class="flaticon-arrows"></i>');
+                nivoRun(slider, kids, settings, 'next');
             });
         }
         
