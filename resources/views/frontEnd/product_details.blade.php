@@ -75,7 +75,6 @@
                                 <span>Out of Stock</span>
                                 @endif
                             </div>
-                            <p>{{$detail_product->description}} </p>
                             <p>Code ID: {{$detail_product->p_code}}</p>
                             <div class="single-product-price">
                                 <h2>$ {{$detail_product->price}}</h2>
@@ -145,7 +144,7 @@
                             <div class="clearfix"></div>
                             <div class="tab-content review">
                                 <div role="tabpanel" class="tab-pane active" id="more-info">
-                                    <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                                    <p>{{$detail_product->description}}</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="data">
                                     <table class="table-data-sheet">
