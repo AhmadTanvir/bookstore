@@ -32,9 +32,9 @@ class UsersController extends Controller
             Session::put('frontSession',$input_data['email']);
             if (Auth::attempt(['email'=>$input_data['email'],'password'=>$input_data['password']])) {
                 Session::put('frontSession',$input_data['email']);
-                return view('users.login_register');
-            }else{
                 return redirect('/');
+            }else{
+                return view('users.login_register');
             }
         }else{
             return back()->with('message','Account is not Valid!');
