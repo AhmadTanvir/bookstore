@@ -25,6 +25,11 @@
         <!-- Check Out Area Start -->
         <div class="check-out-area section-padding">
             <div class="container">
+                @if(Session::has('message'))
+                    <div class="alert alert-success text-center" role="alert">
+                        {{Session::get('message')}}
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-8">
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -33,11 +38,11 @@
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                            <span>1</span>
-                                           Checkout Method
+                                           Login to your account
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
                                         <div class="row">
                                             {{-- <div class="col-md-6 col-sm-6">
@@ -61,13 +66,11 @@
                                                     <button class="btn btn-default btn-checkout">CONTINUE</button>
                                                 </div>
                                             </div> --}}
-                                            <div style="margin-left: 170px" class="col-md-6 col-sm-6" align="center">
+                                            <div style="margin-left: 170px" class="col-md-8 col-sm-8">
                                             <div class="checkout-collapse-inner">
                                                 <h2 class="collapse-title">LOGIN</h2>
                                                 <h4 class="collapse-sub-title">Already registered?</h4>
-                                                if Don't have an account?
-                                                <a href="#" data-toggle="modal" data-target="#myModal2">Sign Up Now</a>
-                                                <p class="login-info">OR Please log in below:</p>
+                                                <p class="login-info">Please log in below:</p>
                                                 <form action="{{url('/user_login')}}" method="post">
                                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                     <div class="form-row">
@@ -76,8 +79,9 @@
                                                     <div class="form-row">
                                                         <input type="password" placeholder="Password*" name="password"/>
                                                     </div>
-                                                    <a href="#">forgot your password?</a><br><br>  
-                                                    <div class="check-register login-button">
+                                                    <a href="#" style="float: right;">forgot your password?</a>
+                                                    <a title="Don't have an account?" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Sign Up Now</a><br><br>
+                                                    <div class="check-register login-button" align="center">
                                                         <input class="btn btn-info" type="submit" value="LOGIN"/>
                                                     </div>                                              
                                                 </form>
@@ -87,93 +91,56 @@
                                     </div>
                                 </div>                                
                             </div>
+                        <h2 class="or" align="center">OR</h2>
                             <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
+                                <div class="panel-heading" role="tab" id="#headingTwo">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                            <span>2</span>
-                                           Billing Information
+                                           New User Signup !
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
                                         <div class="row">
-                                          <form action="{{url('/submit-checkout')}}" method="post" class="form-horizontal">
+                                          <form action="{{url('/register_user')}}" method="post" class="form-horizontal">
                                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                                             <div class="col-md-12">
                                                 <p class="form-row">
-                                                    <input type="text" placeholder="First Name *">
+                                                    <input type="text" name="name" value="{{old('name')}}" placeholder=" Name *">
                                                 </p>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="shop-select">
-                                                    <select>
-                                                        <option value="volvo">Select Country*</option>
-                                                        <option value="volvo">Bangladesh</option>
-                                                        <option value="saab">Algeria</option>
-                                                        <option value="mercedes">Afghanistan</option>
-                                                        <option value="audi">Ghana</option>
-                                                        <option value="audi2">Albania</option>
-                                                        <option value="audi3">Bahrain</option>
-                                                        <option value="audi4">Colombia</option>
-                                                        <option value="audi5">Dominican Republic</option>
-                                                    </select>                                       
-                                                </div>  
+                                                <span class="text-danger">{{$errors->first('name')}}</span>
                                             </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
-                                                    <input type="text" placeholder="Company Name">
+                                                    <input type="email" placeholder="Email Address" name="email" value="{{old('email')}}">
                                                 </p>
+                                                <span class="text-danger">{{$errors->first('email')}}</span>
                                             </div>  
                                             <div class="col-md-12">
                                                 <p class="form-row">
-                                                    <input type="text" placeholder="Street address">
+                                                    <input type="password" placeholder="Password" name="password" value="{{old('password')}}">
                                                 </p>
+                                                <span class="text-danger">{{$errors->first('password')}}</span>
                                             </div>
                                             <div class="col-md-12">
                                                 <p class="form-row">
-                                                    <input type="text" placeholder="Town / City">
+                                                    <input type="password" placeholder="Confirm Password" name="password_confirmation" value="{{old('password_confirmation')}}">
                                                 </p>
+                                                <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p class="form-row">
-                                                    <input type="text" placeholder="State / County *">
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="form-row">
-                                                    <input type="text" placeholder="Postcode / Zip">
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="form-row">
-                                                    <input type="text" placeholder="Email Address *">
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="form-row">
-                                                    <input type="text" placeholder="Phone *">
-                                                </p>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="checbox-info">
-                                                    <input type="checkbox" id="cbox">
-                                                    Create an account?
-                                                </label>
-                                                <div id="cbox_info">
-                                                    <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                                                    <p class="form-row form-row-phone">
-                                                        <label>Phone<span class="required">*</span></label>
-                                                        <input type="text" placeholder="Phone">
-                                                    </p>                                    
+                                            <div id="checkout-review-submit" align="center">
+                                                <div class="cart-btn-3" id="review-buttons-container">
+                                                    <button type="submit" title="Place Order" class="btn btn-default"><span>Signup</span></button>
                                                 </div>
-                                            </div>                                          
+                                            </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default">
+                            <!-- <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingThree">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -291,8 +258,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-default">
+                            </div> -->
+                            <!-- <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingFive">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -319,14 +286,14 @@
                                                             <td><h3 class="product-name">People of the book</h3></td>
                                                             <td><span class="cart-price"><span class="check-price">$155.00</span></span></td>
                                                             <td>1</td>
-                                                            <!-- sub total starts here -->
+                                                             sub total starts here 
                                                             <td><span class="cart-price"><span class="check-price">$155.00</span></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td><h3 class="product-name">The secret garden</h3></td>
                                                             <td><span class="cart-price"><span class="check-price">$222.00</span></span></td>
                                                             <td>1</td>
-                                                            <!-- sub total starts here -->
+                                                            sub total starts here
                                                             <td><span class="cart-price"><span class="check-price">$222.00</span></span></td>
                                                         </tr>
                                                     </tbody>
@@ -355,10 +322,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="col-md-offset-1 col-md-3">
+                    <!-- <div class="col-md-offset-1 col-md-3">
                         <div class="checkout-widget">
                             <h2 class="widget-title">YOUR CHECKOUT PROGRESS</h2>
                             <ul>
@@ -368,13 +335,13 @@
                                 <li><a href="#"><i class="fa fa-minus"></i> Payment Method</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <!-- Check Out Area End -->
         <!-- Our Team Area Start -->
-        <div class="our-team-area">
+        <!-- <div class="our-team-area">
             <h2 class="section-title">OUR WRITER</h2>
             <div class="container">
                 <div class="row">
@@ -448,6 +415,6 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Our Team Area End -->
 @endsection
