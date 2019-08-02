@@ -138,10 +138,14 @@ class IndexController extends Controller
     // }
     public function search(Request $request)
     {
+        $this->validate($request, [
+            'query' => 'required|min:3'
+        ]);
+
         $query = $request->input('query');
 
-        $products = Products_model::where('p_name', 'like', '%' . $query . '%')->get();
+        $products = Products_model::where('p_name', 'like', "%$query%")->get();
 
-        return view('frontEnd.search-results',compact('products'));
+        return view('frontEnd.search-results')->with('products', $products);
     }
 }
