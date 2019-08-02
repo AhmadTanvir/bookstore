@@ -35,34 +35,12 @@
                                 </a>
                                 <div class="price"><span>$</span>{{$product->price}}</div>
                                 <div class="banner-bottom text-center">
-                                    <a href="{{url('/product-detail',$product->id)}}">{{$product->p_name}}</a>
+                                    <a href="{{url('/product-detail',$product->id)}}">{{str_limit($product->p_name, 20)}}</a>
                                 </div>
                             </div>
                         </div>
                         @endif
                     @endforeach
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="single-banner">
-                                <a href="#">
-                                    <img src="{{asset('frontEnd/imag/banner/banner2.jpg')}}" alt="">
-                                </a>
-                                <div class="price"><span>$</span>160</div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">NEW RELEASE 2016</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 hidden-sm">
-                            <div class="single-banner">
-                                <a href="#">
-                                    <img src="{{asset('frontEnd/imag/banner/banner3.jpg')}}" alt="">
-                                </a>
-                                <div class="price"><span>$</span>160</div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">NEW RELEASE 2016</a>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -160,7 +138,7 @@
                                                 </div>
                                             </div>
                                             <div class="banner-bottom text-center">
-                                                <a href="{{url('/product-detail',$product->id)}}">{{$product->p_name}}</a>
+                                                <a href="{{url('/product-detail',$product->id)}}">{{str_limit($product->p_name, 20)}}</a>
                                                 <div class="rating-icon">
                                                      <i class="fa fa-star icolor"></i>
                                                      <i class="fa fa-star icolor"></i>
