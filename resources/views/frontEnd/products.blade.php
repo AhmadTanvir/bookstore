@@ -23,42 +23,16 @@
             </div>
         </div> 
         <!-- Breadcrumbs Area Start --> 
-        <!-- <?php
-            $categories=DB::table('categories')->where([['status',1],['parent_id',0]])->get();
-        ?> -->
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
-            <div class="container">
+            <div style="padding-left: 150px; padding-right: 150px">
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="shop-widget">
                             <div class="shop-widget-top">
                                 <aside class="widget widget-categories">
                                     <h2 class="sidebar-title text-center">CATEGORY</h2>
-                            <!-- @foreach($categories as $category)
-                                <?php
-                                    $sub_categories=DB::table('categories')->select('id','name')->where([['parent_id',$category->id],['status',1]])->get();
-                                ?>
-                                    <ul class="sidebar-menu">
-                                        <li>
-                                            <a data-toggle="collapse" data-parent="#accordian" href="#sportswear{{$category->id}}">
-                                                @if(count($sub_categories)>0)
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                @endif
-                                            </a>
-                                            <a href="{{route('cats',$category->id)}}">{{$category->name}}</a>
-                                        </li>
-                                        @if(count($sub_categories)>0)
-                                        <li id="sportswear{{$category->id}}" class="panel-collapse collapse">
-                                            <ul class="panel-body">
-                                                @foreach($sub_categories as $sub_category)
-                                                    <li style="padding: 10px"><a href="{{route('cats',$sub_category->id)}}">{{$sub_category->name}} </a></li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                        @endif
-                                    </ul>
-                            @endforeach -->
+                            
                                 @include('frontEnd.layouts.category_menu')
 
                                 </aside> 
