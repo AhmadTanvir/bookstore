@@ -70,6 +70,26 @@
 <script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
 <!-- <script src="{{asset('frontEnd/js/jquery-2.1.4.min.js')}}"></script> -->
     <!-- //jquery -->
+<!-- Google Map js -->
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script>
+            function initialize() {
+              var mapOptions = {
+                zoom: 16,
+                scrollwheel: false,
+                center: new google.maps.LatLng(23.763474, 90.431483)
+              };
+              var map = new google.maps.Map(document.getElementById('googleMap'),
+                  mapOptions);
+              var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                animation:google.maps.Animation.BOUNCE,
+                icon: 'img/map-icon.png',
+                map: map
+              });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>   
 <script type="text/javascript">
  
         $(".update-cart").click(function (e) {
