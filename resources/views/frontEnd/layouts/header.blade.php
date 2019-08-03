@@ -35,8 +35,8 @@
                                     </li>
                                     <li><a href="{{url('/list-products')}}">FEATURED</a></li>
                                     <li><a href="{{url('/book-review')}}">BOOK REVIEW</a></li>
-                                    <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="contact.html">CONTACT</a></li>
+                                    <li><a href="{{url('/about-us')}}">ABOUT US</a></li>
+                                    <li><a href="{{url('/contact-us')}}">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>                        
