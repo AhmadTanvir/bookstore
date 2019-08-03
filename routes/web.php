@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Input;
 Route::get('/','IndexController@index');
 Route::get('/list-products','IndexController@shop');
 Route::get('/book-review','IndexController@bookreview');
+Route::get('/about-us','IndexController@aboutus');
+Route::get('/contact-us','IndexController@contactus');
 Route::get('/cat/{id}','IndexController@listByCat')->name('cats');
 Route::get('/price/{low}/{high}','IndexController@getPriceRange');
 Route::get ('sort/{type}','IndexController@getSort');
