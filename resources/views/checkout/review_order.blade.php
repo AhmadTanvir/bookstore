@@ -63,73 +63,6 @@
                         <div class="review-payment">
                             <h2>Review & Payment</h2>
                         </div>
-                        <!-- <div class="table-responsive cart_info">
-                            <table class="table table-condensed">
-                                <thead>
-                                <tr class="cart_menu">
-                                    <td class="image">Item</td>
-                                    <td class="description"></td>
-                                    <td class="price">Price</td>
-                                    <td class="quantity">Quantity</td>
-                                    <td class="total">Total</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($cart_datas as $cart_data)
-                                    <?php
-                                    $image_products=DB::table('products')->select('image')->where('id',$cart_data->products_id)->get();
-                                    ?>
-                                    <tr>
-                                    <td class="cart_product">
-                                        @foreach($image_products as $image_product)
-                                            <a href=""><img src="{{url('products/small',$image_product->image)}}" alt="" style="width: 100px;"></a>
-                                        @endforeach
-                                    </td>
-                                    <td class="cart_description">
-                                        <h4><a href="">{{$cart_data->product_name}}</a></h4>
-                                        <p>{{$cart_data->product_code}} | {{$cart_data->size}}</p>
-                                    </td>
-                                    <td class="cart_price">
-                                        <p>${{$cart_data->price}}</p>
-                                    </td>
-                                    <td class="cart_quantity">
-                                        <p>{{$cart_data->quantity}}</p>
-                                    </td>
-                                    <td class="cart_total">
-                                        <p class="cart_total_price">$ {{$cart_data->price*$cart_data->quantity}}</p>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                <tr>
-                                    <td colspan="4">&nbsp;</td>
-                                    <td colspan="2">
-                                        <table class="table table-condensed total-result">
-                                            <tr>
-                                                <td>Cart Sub Total</td>
-                                                <td>$ {{$total_price}}</td>
-                                            </tr>
-                                            @if(Session::has('discount_amount_price'))
-                                                <tr class="shipping-cost">
-                                                    <td>Coupon Discount</td>
-                                                    <td>$ {{Session::get('discount_amount_price')}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Total</td>
-                                                    <td><span>$ {{$total_price-Session::get('discount_amount_price')}}</span></td>
-                                                </tr>
-                                            @else
-                                                <tr>
-                                                    <td>Total</td>
-                                                    <td><span>$ {{$total_price}}</span></td>
-                                                </tr>
-                                            @endif
-                                        </table>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
-                        <!-- <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive"> -->
                             <div class="panel-body no-padding">
                                 <div class="order-review" id="checkout-review">    
                                     <div class="table-responsive" id="checkout-review-table-wrapper">
@@ -210,13 +143,10 @@
                                             <span>
                                             <label><input type="radio" name="payment_method" value="Paypal"> Paypal</label>
                                         </span>
-                                            <!-- <button type="submit" class="btn btn-primary" style="float: right;">Order Now</button> -->
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        <!-- </div> -->
                     </section>
-
                 </div>
             </form>
         </div>
