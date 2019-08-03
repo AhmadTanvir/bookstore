@@ -34,6 +34,10 @@ class IndexController extends Controller
         $byCate="";
         return view('frontEnd.products',compact('products','byCate'));
     }
+    public function bookreview(){
+        
+        return view('frontEnd.bookreview');
+    }
     public function listByCat($id){
         $list_product=Products_model::where('categories_id',$id)->get();
         $byCate=Category_model::select('name')->where('id',$id)->first();
@@ -66,6 +70,7 @@ class IndexController extends Controller
         return view('categorylist')->with('products',$products)->with('cart',$this->getCart())->with('searchType','Price Range')->with('searchName','$'.$low.' - $'. $high);
     }
     public function getSort($type){
+        $byCate="";
         $products = [];
         $sortName = 'N/A';
         switch($type){
@@ -86,7 +91,7 @@ class IndexController extends Controller
             $sortName           = 'Most Cost Effective';
             break;
         }
-        return view('frontEnd.index')->with('products',$products)->with('cart',$this->getCart())->with('searchType','Sort')->with('searchName',$sortName);
+        return view('frontEnd.products')->with('products',$products)->with('cart',$this->getCart())->with('searchType','Sort')->with('searchName',$sortName)->with('byCate', $byCate);
     }
     private function getCart(){
         if (! $this->request->session()->has('cart')){
