@@ -23,35 +23,56 @@
             </div>
         </div> 
         <!-- Breadcrumbs Area Start --> 
+        <!-- <?php
+            $categories=DB::table('categories')->where([['status',1],['parent_id',0]])->get();
+        ?> -->
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
-            <div style="padding-left: 150px; padding-right: 150px">
+            <div style="padding-left: 100px; padding-right: 100px">
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="shop-widget">
                             <div class="shop-widget-top">
                                 <aside class="widget widget-categories">
                                     <h2 class="sidebar-title text-center">CATEGORY</h2>
-                            
                                 @include('frontEnd.layouts.category_menu')
 
                                 </aside> 
                                 <aside class="widget shop-filter">
-                                    <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
+                                    <h2 class="sidebar-title text-center">Product Sorting</h2>
                                     <div class="info-widget">
                                         <div class="price-filter">
-                                            <div id="slider-range"></div>
-                                            <div class="price-slider-amount">
-                                                <!-- <input type="text" id="amount" name="price"  placeholder="Add Your Price" /> -->
-                                                <div class="widget-buttom">
-                                                    <input type="submit"  value="Filter"/>  
-                                                    <input type="reset" value="CLEAR" />
-                                                </div>
+                                            <!--sorting-->
+                                        <div class="price-range" style="padding: 0">
+                                            <div class="brands-name">
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    <li><a href="{{ url('sort/new') }}">Newest</a></li>
+                                                    <li><a href="{{ url('sort/old') }}">Oldest</a></li>
+                                                    <li><a href="{{ url('sort/expensive') }}">Most Expensive</a></li>
+                                                    <li><a href="{{ url('sort/costly') }}">Most Cost Effective</a></li>
+                                                </ul>
                                             </div>
+                                        </div>
+                                        <!--/sorting-->
+                                        </div>
+                                    </div>
+                                </aside>
+                                <aside class="widget shop-filter">
+                                    <h2 class="sidebar-title text-center">Price Range</h2>
+                                    <div class="info-widget">
+                                        <div class="price-filter">
+                                            <!--price_range-->
+                                        <div class="price-range">
+                                            <div class="well text-center">
+                                                 <input type="text" class="span2" value="0,600" j="0" data-slider-max="600" data-slider-step="5" data-slider-value="[0,600]" id="sl2" ><br />
+                                                 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b><br>
+                                                 <a style="padding-top: 4px" href="#" id="sl2_search" class="btn btn-primary cart">Show</a>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </aside>                            
-                            </div>
+                                </div>
                             <div class="shop-widget-bottom">
                                 <aside class="widget widget-tag">
                                     <h2 class="sidebar-title">POPULAR TAG</h2>
