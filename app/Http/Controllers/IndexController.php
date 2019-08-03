@@ -38,6 +38,14 @@ class IndexController extends Controller
         
         return view('frontEnd.bookreview');
     }
+    public function aboutus(){
+        
+        return view('frontEnd.aboutus');
+    }
+    public function contactus(){
+        
+        return view('frontEnd.contact');
+    }
     public function listByCat($id){
         $list_product=Products_model::where('categories_id',$id)->get();
         $byCate=Category_model::select('name')->where('id',$id)->first();
