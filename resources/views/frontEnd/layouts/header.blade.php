@@ -15,10 +15,10 @@
                             <nav>
                                 <ul id="nav">
                                     <li><a href="{{url('/')}}">HOME</a></li>
-                                    <li><a href="#">pages</a>
-<!-- <?php
+                                    <li><a href="#">Categories</a>
+<?php
     $categories=DB::table('categories')->where([['status',1],['parent_id',0]])->get();
-?> -->
+?>
                                         <ul class="sub-menu">
 @foreach($categories as $category)
 <?php
@@ -26,19 +26,15 @@
 ?>
         <li>
             <a href="{{route('cats',$category->id)}}">{{$category->name}}</a>
-            @if(count($sub_categories)>0)
-            <ul class="sub-menu" id="sportswear{{$category->id}}">
-                @foreach($sub_categories as $sub_category)
-                <li><a href="{{route('cats',$sub_category->id)}}">{{$sub_category->name}}</a></li>
-                @endforeach
+            <ul class="sub-menu">
+                <li><a href="{{route('cats',$category->id)}}">{{$category->name}}</a></li>
             </ul>
-            @endif
         </li>
 @endforeach
                                         </ul>
                                     </li>
                                     <li><a href="{{url('/list-products')}}">FEATURED</a></li>
-                                    <li><a href="shop.html">BOOK REVIEW</a></li>
+                                    <li><a href="{{url('/book-review')}}">BOOK REVIEW</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>
                                     <li><a href="contact.html">CONTACT</a></li>
                                 </ul>
