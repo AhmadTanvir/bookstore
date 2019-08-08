@@ -8,6 +8,14 @@
     <meta name="author" content="">
     <title>@yield('title','Master Page')</title>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('frontEnd/css/default/default.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/light/light.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/dark/dark.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/bar/bar.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/lib/css/nivo-slider.css')}}" rel="stylesheet">
+    <link href="{{asset('frontEnd/css/style2.css')}}" rel="stylesheet">
+    
     <link href="{{asset('frontEnd/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/jquery-ui.min.css')}}" rel="stylesheet">
@@ -19,7 +27,6 @@
     <link href="{{asset('frontEnd/css/price-range.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/venobox/venobox.css')}}" rel="stylesheet">
     {{-- <link href="{{asset('frontEnd/css/main.css')}}" rel="stylesheet"> --}}
-    <link href="{{asset('frontEnd/lib/css/nivo-slider.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/lib/css/preview.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/style.css')}}" rel="stylesheet">
@@ -62,6 +69,7 @@
 </script>
 <script src="{{asset('frontEnd/js/jquery.scrollUp.min.js')}}"></script>
 <script src="{{asset('frontEnd/js/plugins.js')}}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="{{asset('frontEnd/lib/js/jquery.nivo.slider.js')}}"></script>
 <script src="{{asset('frontEnd/lib/home.js')}}"></script>
 <script src="{{asset('frontEnd/js/main.js')}}"></script>
@@ -70,6 +78,37 @@
 <script src="{{asset('easyzoom/dist/easyzoom.js')}}"></script>
 <!-- <script src="{{asset('frontEnd/js/jquery-2.1.4.min.js')}}"></script> -->
     <!-- //jquery -->
+    <script type="text/javascript">
+    $(window).load(function() {
+    $('#slider').nivoSlider();
+    });
+    </script>
+    <script type="text/javascript">
+    $(window).load(function() {
+    $('#slider').nivoSlider({
+    effect: 'random',
+    slices: 15,
+    boxCols: 8,
+    boxRows: 4,
+    animSpeed: 500,
+    pauseTime: 3000,
+    startSlide: 0,
+    directionNav: true,
+    controlNav: true,
+    controlNavThumbs: false,
+    pauseOnHover: true,
+    manualAdvance: false,
+    prevText: 'Prev',
+    nextText: 'Next',
+    randomStart: false,
+    beforeChange: function(){},
+    afterChange: function(){},
+    slideshowEnd: function(){},
+    lastSlide: function(){},
+    afterLoad: function(){}
+    });
+    });
+    </script>
 <!-- Google Map js -->
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script>

@@ -1,64 +1,19 @@
-<div> 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="{{asset('frontEnd/imag/slider/slide1.jpg')}}" alt="Los Angeles" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="{{asset('frontEnd/imag/slider/slide2.jpg')}}" alt="Chicago" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="{{asset('frontEnd/imag/slider/slide1.jpg')}}" alt="New york" style="width:100%;">
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+<div id="slider" class="nivoSlider"> 
+<img src="{{asset('frontEnd/imag/slider/slide1.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide1.png')}}" alt="" /> 
+<img src="{{asset('frontEnd/imag/slider/slide2.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide2.png')}}" alt="" />
+<img src="{{asset('frontEnd/imag/slider/slide3.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide3.png')}}" alt="" data-transition="slideInLeft" /> 
+<img src="{{asset('frontEnd/imag/slider/slide4.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide4.png')}}" alt="" title="#htmlcaption" /> 
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- slider Area Start -->
-        <!-- <div class="slider-area">
-            <div class="bend niceties preview-1" id="slider-carousel">
-                <div id="ensign-nivoslider" class="slides"> 
-                    <img src="{{asset('frontEnd/imag/slider/slide1.jpg')}}" alt="" title="#slider-direction-1"  />
-                    <img src="{{asset('frontEnd/imag/slider/slide2.jpg')}}" alt="" title="#slider-direction-2"  />
-                </div>
-            </div>
+        <!-- <div class="slider-area nivoSlider" id="slider">
+            <img src="{{asset('frontEnd/imag/slider/slide1.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide1.png')}}" alt="" title="#slider-direction-1"  />
+            <img src="{{asset('frontEnd/imag/slider/slide2.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide2.png')}}" alt="" title="#slider-direction-2"  />
+            <img src="{{asset('frontEnd/imag/slider/slide3.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide3.png')}}" alt="" data-transition="slideInLeft"  />
+            <img src="{{asset('frontEnd/imag/slider/slide4.png')}}" data-thumb="{{asset('frontEnd/imag/slider/slide4.png')}}" alt="" title="#htmlcaption" />
         </div> -->
 <!-- <div id="wrapper">
     <div class="slider-wrapper theme-default">

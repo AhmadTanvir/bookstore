@@ -57,7 +57,7 @@
                                 <li class="shoping-cart">
                                     <a href="{{url('/viewcart')}}">
                                         <i class="flaticon-shop"></i>
-                                        <span>{{ count(session('session_id')) }}</span>
+                                        <span>{{ count([session('session_id')]) }}</span>
                                     </a>
                                 </li>
                             </ul>
